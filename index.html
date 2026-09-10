@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aili — Ropa y accesorios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600;1,6..96,700&family=Imperial+Script&family=Syne:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4daf6;
+      --ink: #0d0038;
+      --muted: #333769;
+      --line: #bc92c0;
+      --accent: #5d5b98;
+      --white: #fbf0fc;
+      --display: "Bodoni Moda", "Didot", "Times New Roman", serif;
+      --script: "Imperial Script", "Snell Roundhand", cursive;
+      --sans: "Tenor Sans", "Gill Sans", sans-serif;
+      --ui: "Syne", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+
+    header {
+      border-bottom: 1px solid var(--ink);
+      background: var(--bg);
+    }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0 8px;
+      font-family: var(--ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0 18px;
+      gap: 20px;
+    }
+    .logo {
+      font-family: var(--script);
+      font-size: 3.4rem;
+      line-height: 0.8;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .links {
+      display: flex;
+      gap: 26px;
+      font-family: var(--ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .links a:hover { color: var(--ink); }
+    .cta, .ghost {
+      font-family: var(--ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0;
+      padding: 12px 18px;
+    }
+    .cta {
+      background: var(--ink);
+      color: var(--bg);
+      border: 1px solid var(--ink);
+    }
+    .cta:hover { background: var(--muted); border-color: var(--muted); }
+    .ghost {
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+    }
+    .ghost:hover { background: rgba(93, 91, 152, 0.12); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 0;
+      border-bottom: 1px solid var(--ink);
+    }
+    .hero-copy {
+      padding: 48px 48px 48px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .issue {
+      font-family: var(--ui);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: var(--display);
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(4.2rem, 9vw, 7.4rem);
+      line-height: 0.82;
+      letter-spacing: -0.04em;
+    }
+    h1 .script {
+      display: block;
+      font-family: var(--script);
+      font-style: normal;
+      font-size: 0.52em;
+      letter-spacing: 0;
+      color: var(--accent);
+      line-height: 0.9;
+      margin-bottom: 0.08em;
+    }
+    .hero-copy > p {
+      margin: 22px 0 28px;
+      color: var(--muted);
+      max-width: 38ch;
+      font-size: 1.02rem;
+    }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-visual {
+      position: relative;
+      min-height: 640px;
+      border-left: 1px solid var(--ink);
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 640px;
+      object-fit: cover;
+      filter: contrast(1.08) saturate(0.85);
+    }
+    .cover-label {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--ui);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      color: var(--bg);
+      mix-blend-mode: difference;
+    }
+    .folio {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--bg);
+    }
+
+    section { padding: 72px 0; }
+    .rule { border-top: 1px solid var(--ink); }
+    .section-head {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 32px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .num {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--accent);
+    }
+    h2 {
+      font-family: var(--display);
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .lede {
+      font-family: var(--ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      max-width: 22ch;
+      text-align: right;
+    }
+    .muted { color: var(--muted); }
+
+    .grid-3 { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 0; border: 1px solid var(--ink); }
+    .card { background: var(--white); overflow: hidden; }
+    .card + .card { border-left: 1px solid var(--ink); }
+    .card img { height: 340px; width: 100%; object-fit: cover; filter: saturate(0.8); }
+    .card .body {
+      padding: 18px 18px 22px;
+      border-top: 1px solid var(--ink);
+    }
+    h3 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: 1.85rem;
+      font-style: italic;
+    }
+    .card .muted { margin-top: 6px; font-size: 0.95rem; }
+
+    .lookbook { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--ink); }
+    .product { background: var(--white); overflow: hidden; }
+    .product + .product { border-left: 1px solid var(--ink); }
+    .product img { height: 320px; width: 100%; object-fit: cover; filter: saturate(0.82); }
+    .product .body {
+      padding: 14px 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-top: 1px solid var(--ink);
+      gap: 8px;
+    }
+    .product h3 { font-size: 1.25rem; }
+    .price {
+      font-family: var(--ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 0;
+      border: 1px solid var(--ink);
+    }
+    .about img {
+      height: 100%;
+      min-height: 480px;
+      width: 100%;
+      object-fit: cover;
+      filter: saturate(0.75) contrast(1.05);
+    }
+    .about-copy {
+      padding: 40px 40px 36px;
+      background: var(--white);
+      border-left: 1px solid var(--ink);
+    }
+    .about-copy h2 { margin: 8px 0 18px; }
+    .drop {
+      font-family: var(--display);
+      font-style: italic;
+      float: left;
+      font-size: 4.6rem;
+      line-height: 0.7;
+      padding-right: 10px;
+      color: var(--accent);
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 32px;
+      border-top: 1px solid var(--ink);
+    }
+    .stat { padding: 16px 12px 0 0; }
+    .stat + .stat { border-left: 1px solid var(--line); padding-left: 16px; }
+    .stat b {
+      display: block;
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+    .stat span {
+      font-family: var(--ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .quote {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 64px 48px 56px;
+      text-align: center;
+      position: relative;
+    }
+    .quote .mark {
+      font-family: var(--script);
+      font-size: 8rem;
+      line-height: 0.4;
+      display: block;
+      color: var(--line);
+    }
+    .quote p {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+      line-height: 1.15;
+      max-width: 18ch;
+      margin: 12px auto 0;
+    }
+    .quote span {
+      display: block;
+      margin-top: 22px;
+      font-family: var(--ui);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      opacity: 0.75;
+    }
+
+    .newsletter {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+    }
+    form { display: flex; gap: 0; margin-top: 20px; }
+    input[type="email"] {
+      flex: 1;
+      border: 1px solid var(--ink);
+      border-right: 0;
+      background: var(--white);
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--ink);
+      border-radius: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--ink);
+      padding: 18px 0 28px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-family: var(--ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .hero, .grid-3, .lookbook, .about, .newsletter, .section-head { grid-template-columns: 1fr; }
+      .hero-copy { padding: 36px 0; }
+      .hero-visual, .hero-visual img, .about img { min-height: 0; height: 420px; }
+      .hero-visual, .about-copy, .card + .card, .product + .product { border-left: 0; }
+      .card + .card, .product + .product { border-top: 1px solid var(--ink); }
+      .lede { text-align: left; }
+      .logo { font-size: 2.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap masthead">
+      <span>Vol. 08 — SS26</span>
+      <span>Edición especial</span>
+      <span>Ciudad de México</span>
+    </div>
+    <nav class="wrap">
+      <a class="logo" href="#inicio">Aili</a>
+      <div class="links">
+        <a href="#colecciones">Colecciones</a>
+        <a href="#novedades">Lookbook</a>
+        <a href="#nosotros">Editorial</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <a class="cta" href="#novedades">Ver tienda</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="inicio">
+      <div class="hero-copy">
+        <p class="issue">Ropa y accesorios · Portada</p>
+        <h1>
+          <span class="script">fashion</span>
+          Aili
+        </h1>
+        <p>Piezas simples para un estilo que se siente tuyo. Cortes atemporales, textiles suaves y accesorios que acompañan el día a día — un mockup listo para personalizar.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#colecciones">Explorar colección</a>
+          <a class="ghost" href="#nosotros">La marca</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <span class="folio">01</span>
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Look de temporada Aili" />
+        <span class="cover-label">Nueva temporada</span>
+      </div>
+    </section>
+
+    <section class="wrap" id="colecciones">
+      <div class="section-head">
+        <span class="num">02</span>
+        <h2>Elige tu ritmo</h2>
+        <p class="lede">Tres líneas pensadas para mezclar, no para complicar</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Colección urbana" />
+          <div class="body">
+            <h3>Urbana</h3>
+            <p class="muted">Chaquetas ligeras, denim y basics para moverte sin pensar.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Colección evening" />
+          <div class="body">
+            <h3>Evening</h3>
+            <p class="muted">Siluetas limpias para cenas, eventos y noches que piden más.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Accesorios" />
+          <div class="body">
+            <h3>Accesorios</h3>
+            <p class="muted">Bolsos, joyería ligera y detalles que cierran el look.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap rule" id="novedades">
+      <div class="section-head">
+        <span class="num">03</span>
+        <h2>Lookbook</h2>
+        <p class="lede">Novedades de vitrina · precios de ejemplo</p>
+      </div>
+      <div class="lookbook">
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Blusa lino" />
+          <div class="body">
+            <h3>Blusa lino</h3>
+            <p class="price">$48</p>
+          </div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Jeans rectos" />
+          <div class="body">
+            <h3>Jeans rectos</h3>
+            <p class="price">$72</p>
+          </div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1590874103328-eac38a941956?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Bolso tote" />
+          <div class="body">
+            <h3>Bolso tote</h3>
+            <p class="price">$64</p>
+          </div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1611652022419-a73ad71db66e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Aros minimal" />
+          <div class="body">
+            <h3>Aros minimal</h3>
+            <p class="price">$22</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="nosotros">
+      <div class="section-head">
+        <span class="num">04</span>
+        <h2>Editorial</h2>
+        <p class="lede">La marca, en una página</p>
+      </div>
+      <div class="about">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Estudio Aili" />
+        <div class="about-copy">
+          <p class="issue">Desde el atelier</p>
+          <h2>Verse bien, sentirse fácil.</h2>
+          <p class="muted">
+            <span class="drop">A</span>
+            ili nace como un espacio de ropa y accesorios con foco en calidad, cortes versátiles y una paleta calmada. Este texto es de ejemplo: cámbialo por tu historia, tu ciudad y tu propuesta real.
+          </p>
+          <div class="stats">
+            <div class="stat"><b>120+</b><span class="muted">Piezas activas</span></div>
+            <div class="stat"><b>4.9</b><span class="muted">Valoración</span></div>
+            <div class="stat"><b>30</b><span class="muted">Días de cambio</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="quote">
+        <span class="mark">Aili</span>
+        <p>Pedí tres basics y un bolso. Todo llegó impecable y se siente de otra liga.</p>
+        <span>Cliente de ejemplo — Ciudad de México</span>
+      </div>
+    </section>
+
+    <section class="wrap" id="contacto">
+      <div class="newsletter">
+        <div>
+          <p class="issue">Lista de espera</p>
+          <h2>Entérate primero</h2>
+        </div>
+        <div>
+          <p class="muted">Dropeos y restocks. Formulario de mockup: no envía nada.</p>
+          <form onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Listo';">
+            <input type="email" placeholder="tu@email.com" required />
+            <button class="cta" type="submit">Suscribirme</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© 2026 Aili</span>
+    <span>hola@aili.example</span>
+    <span>Instagram @aili</span>
+  </footer>
+</body>
+</html>
