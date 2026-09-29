@@ -1,21 +1,33 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aili — Un universo de moda sin etiquetas</title>
+
+  <title>AILI — Who Will You Be Today?</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600;1,6..96,700&family=Imperial+Script&family=Syne:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600;1,6..96,700&family=Imperial+Script&family=Syne:wght@400;500;600;700&family=Tenor+Sans&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
+
     :root {
       --bg: #09030d;
       --ink: #f0e6f6;
       --muted: #bda8cd;
       --line: #2d183d;
+
+      /* IDENTIDAD AILI */
       --accent: #a855f7;
+
+      --gold: #c9a45c;
+
       --white: #13081e;
 
       --display: "Bodoni Moda", "Didot", "Times New Roman", serif;
@@ -24,15 +36,18 @@
       --ui: "Syne", sans-serif;
     }
 
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
+
 
     body {
       font-family: var(--sans);
@@ -42,511 +57,1086 @@
       font-size: 17px;
     }
 
+
     img {
       max-width: 100%;
       display: block;
     }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
+
     .wrap {
       width: min(1180px, calc(100% - 40px));
       margin-inline: auto;
     }
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       border-bottom: 1px solid var(--line);
       background: var(--bg);
     }
 
+
     .masthead {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+
       padding: 10px 0 8px;
 
       font-family: var(--ui);
       font-size: 0.68rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
+
       color: var(--muted);
     }
+
 
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       padding: 6px 0 18px;
+
       gap: 20px;
     }
 
+
     .logo {
       font-family: var(--script);
+
       font-size: 3.4rem;
       line-height: 0.8;
+
       font-weight: 400;
+
       letter-spacing: 0;
+
       text-transform: none;
+
       color: var(--ink);
     }
+
 
     .links {
       display: flex;
       gap: 26px;
 
       font-family: var(--ui);
+
       font-size: 0.72rem;
+
       letter-spacing: 0.22em;
+
       text-transform: uppercase;
+
       color: var(--muted);
     }
 
+
     .links a:hover {
-      color: var(--accent);
+      color: var(--gold);
     }
+
 
     .cta,
     .ghost {
+
       font-family: var(--ui);
+
       font-size: 0.72rem;
+
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
+
       cursor: pointer;
+
       border-radius: 0;
+
       padding: 12px 18px;
+
       transition: all 0.3s ease;
     }
 
+
     .cta {
+
       background: var(--ink);
+
       color: var(--bg);
+
       border: 1px solid var(--ink);
     }
 
+
     .cta:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
+
+      background: var(--gold);
+
+      border-color: var(--gold);
+
+      color: var(--bg);
     }
 
+
     .ghost {
+
       border: 1px solid var(--line);
+
       background: transparent;
+
       color: var(--ink);
     }
 
+
     .ghost:hover {
+
       background: rgba(168, 85, 247, 0.15);
+
       border-color: var(--accent);
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
+
       display: grid;
+
       grid-template-columns: 1.05fr 0.95fr;
+
       gap: 0;
+
       border-bottom: 1px solid var(--line);
     }
 
+
     .hero-copy {
+
       padding: 48px 48px 48px 0;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
+
       position: relative;
     }
 
+
     .issue {
+
       font-family: var(--ui);
+
       letter-spacing: 0.32em;
+
       text-transform: uppercase;
+
       font-size: 0.68rem;
-      color: var(--accent);
+
+      color: var(--gold);
+
       margin-bottom: 18px;
     }
 
+
     h1 {
+
       font-family: var(--display);
+
       font-weight: 400;
+
       font-style: italic;
+
       font-size: clamp(4.2rem, 9vw, 7.4rem);
+
       line-height: 0.82;
+
       letter-spacing: -0.04em;
     }
 
+
     h1 .script {
+
       display: block;
+
       font-family: var(--script);
+
       font-style: normal;
+
       font-size: 0.52em;
+
       letter-spacing: 0;
+
       color: var(--accent);
+
       line-height: 0.9;
+
       margin-bottom: 0.08em;
     }
 
+
     .hero-copy > p {
+
       margin: 22px 0 28px;
+
       color: var(--muted);
+
       max-width: 38ch;
+
       font-size: 1.02rem;
     }
 
+
+    .tagline {
+
+      font-family: var(--ui);
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+      color: var(--gold);
+
+      font-size: 0.78rem;
+
+      margin-top: 4px;
+    }
+
+
     .hero-actions {
+
       display: flex;
+
       gap: 10px;
+
       flex-wrap: wrap;
     }
 
+
     .hero-visual {
+
       position: relative;
+
       min-height: 640px;
+
       border-left: 1px solid var(--line);
     }
 
+
     .hero-visual img {
+
       width: 100%;
+
       height: 100%;
+
       min-height: 640px;
+
       object-fit: cover;
+
       filter: contrast(1.1) saturate(0.85);
     }
 
+
     .cover-label {
+
       position: absolute;
+
       right: 18px;
+
       bottom: 18px;
+
       writing-mode: vertical-rl;
+
       transform: rotate(180deg);
 
       font-family: var(--ui);
+
       letter-spacing: 0.28em;
+
       text-transform: uppercase;
+
       font-size: 0.68rem;
+
       color: var(--ink);
+
       mix-blend-mode: difference;
     }
 
+
     .folio {
+
       position: absolute;
+
       left: 16px;
+
       top: 16px;
 
       font-family: var(--display);
+
       font-style: italic;
+
       font-size: 1.6rem;
+
       color: var(--ink);
+
       mix-blend-mode: difference;
     }
 
-    /* SECTIONS */
+
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
       padding: 72px 0;
     }
 
+
     .rule {
       border-top: 1px solid var(--line);
     }
 
+
     .section-head {
+
       display: grid;
+
       grid-template-columns: 120px 1fr auto;
+
       gap: 20px;
+
       align-items: end;
+
       margin-bottom: 32px;
+
       padding-bottom: 14px;
+
       border-bottom: 1px solid var(--line);
     }
 
+
     .num {
+
       font-family: var(--display);
+
       font-style: italic;
+
       font-size: 2.4rem;
+
       line-height: 1;
+
       color: var(--accent);
     }
 
+
     h2 {
+
       font-family: var(--display);
+
       font-weight: 400;
+
       font-style: italic;
+
       font-size: clamp(2.4rem, 4vw, 3.6rem);
+
       line-height: 0.95;
+
       letter-spacing: -0.03em;
     }
 
+
     .lede {
+
       font-family: var(--ui);
+
       font-size: 0.72rem;
+
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
+
       color: var(--muted);
+
       max-width: 22ch;
+
       text-align: right;
     }
+
 
     .muted {
       color: var(--muted);
     }
 
-    /* COLLECTIONS */
+
+    /* =========================
+       MISSION / VISION
+    ========================= */
 
     .grid-3 {
+
       display: grid;
+
       grid-template-columns: 1.4fr 1fr 1fr;
+
       gap: 0;
+
       border: 1px solid var(--line);
     }
 
+
     .card {
+
       background: var(--white);
+
       overflow: hidden;
     }
 
+
     .card + .card {
+
       border-left: 1px solid var(--line);
     }
 
+
     .card img {
+
       height: 340px;
+
       width: 100%;
+
       object-fit: cover;
+
       filter: saturate(0.8);
     }
 
+
     .card .body {
+
       padding: 18px 18px 22px;
+
       border-top: 1px solid var(--line);
     }
 
+
     h3 {
+
       font-family: var(--display);
+
       font-weight: 500;
+
       font-size: 1.85rem;
+
       font-style: italic;
     }
 
+
     .card .muted {
-      margin-top: 6px;
+
+      margin-top: 10px;
+
       font-size: 0.95rem;
     }
 
-    /* LOOKBOOK */
 
-    .lookbook {
+    /* =========================
+       BRAND PHILOSOPHY
+    ========================= */
+
+    .philosophy {
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
+
+      grid-template-columns: repeat(3, 1fr);
+
       border: 1px solid var(--line);
     }
 
-    .product {
+
+    .value {
+
+      padding: 28px 24px;
+
+      min-height: 150px;
+
       background: var(--white);
+    }
+
+
+    .value:nth-child(2),
+    .value:nth-child(3),
+    .value:nth-child(5),
+    .value:nth-child(6) {
+
+      border-left: 1px solid var(--line);
+    }
+
+
+    .value:nth-child(n + 4) {
+
+      border-top: 1px solid var(--line);
+    }
+
+
+    .value-number {
+
+      font-family: var(--display);
+
+      font-style: italic;
+
+      color: var(--accent);
+
+      font-size: 1.2rem;
+    }
+
+
+    .value h3 {
+
+      margin-top: 8px;
+
+      font-size: 1.55rem;
+    }
+
+
+    /* =========================
+       LOOKBOOK
+    ========================= */
+
+    .lookbook {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 0;
+
+      border: 1px solid var(--line);
+    }
+
+
+    .product {
+
+      background: var(--white);
+
       overflow: hidden;
     }
 
+
     .product + .product {
+
       border-left: 1px solid var(--line);
     }
 
+
     .product img {
+
       height: 320px;
+
       width: 100%;
+
       object-fit: cover;
+
       filter: saturate(0.82);
     }
 
+
     .product .body {
+
       padding: 14px 16px 18px;
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: baseline;
+
       border-top: 1px solid var(--line);
+
       gap: 8px;
     }
 
+
     .product h3 {
+
       font-size: 1.25rem;
     }
 
+
     .price {
+
       font-family: var(--ui);
+
       font-size: 0.72rem;
+
       letter-spacing: 0.12em;
-      color: var(--accent);
+
+      color: var(--gold);
     }
 
-    /* ABOUT */
+
+    /* =========================
+       ABOUT / PHILOSOPHY
+    ========================= */
 
     .about {
+
       display: grid;
+
       grid-template-columns: 0.92fr 1.08fr;
+
       gap: 0;
+
       border: 1px solid var(--line);
     }
 
+
     .about img {
+
       height: 100%;
+
       min-height: 480px;
+
       width: 100%;
+
       object-fit: cover;
+
       filter: saturate(0.75) contrast(1.05);
     }
 
+
     .about-copy {
+
       padding: 40px 40px 36px;
+
       background: var(--white);
+
       border-left: 1px solid var(--line);
     }
 
+
     .about-copy h2 {
+
       margin: 8px 0 18px;
     }
 
+
     .drop {
+
       font-family: var(--display);
+
       font-style: italic;
+
       float: left;
+
       font-size: 4.6rem;
+
       line-height: 0.7;
+
       padding-right: 10px;
+
       color: var(--accent);
     }
 
-    .stats {
+
+    /* =========================
+       VISUAL IDENTITY
+    ========================= */
+
+    .identity {
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin-top: 32px;
-      border-top: 1px solid var(--line);
-    }
 
-    .stat {
-      padding: 16px 12px 0 0;
-    }
+      grid-template-columns: 1fr 1fr;
 
-    .stat + .stat {
-      border-left: 1px solid var(--line);
-      padding-left: 16px;
-    }
-
-    .stat b {
-      display: block;
-      font-family: var(--display);
-      font-style: italic;
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--ink);
-    }
-
-    .stat span {
-      font-family: var(--ui);
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    /* QUOTE */
-
-    .quote {
-      background: var(--white);
-      color: var(--ink);
-      padding: 64px 48px 56px;
-      text-align: center;
-      position: relative;
       border: 1px solid var(--line);
     }
 
-    .quote .mark {
+
+    .identity-box {
+
+      padding: 34px;
+
+      background: var(--white);
+    }
+
+
+    .identity-box + .identity-box {
+
+      border-left: 1px solid var(--line);
+    }
+
+
+    .swatches {
+
+      display: flex;
+
+      gap: 12px;
+
+      margin-top: 25px;
+
+      flex-wrap: wrap;
+    }
+
+
+    .swatch {
+
+      width: 95px;
+
+      height: 95px;
+
+      display: flex;
+
+      align-items: end;
+
+      padding: 8px;
+
+      font-family: var(--ui);
+
+      font-size: 0.58rem;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+
+      border: 1px solid var(--line);
+    }
+
+
+    .black {
+      background: #09030d;
+    }
+
+
+    .purple {
+      background: #2d183d;
+    }
+
+
+    .gold {
+      background: #c9a45c;
+
+      color: #09030d;
+    }
+
+
+    .identity-list {
+
+      margin-top: 22px;
+
+      display: grid;
+
+      gap: 10px;
+    }
+
+
+    .identity-list span {
+
+      border-bottom: 1px solid var(--line);
+
+      padding-bottom: 8px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       LOGO / TYPOGRAPHY
+    ========================= */
+
+    .type-system {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      border: 1px solid var(--line);
+    }
+
+
+    .type-box {
+
+      padding: 40px;
+
+      background: var(--white);
+    }
+
+
+    .type-box + .type-box {
+
+      border-left: 1px solid var(--line);
+    }
+
+
+    .type-display {
+
+      font-family: var(--display);
+
+      font-size: 4rem;
+
+      font-style: italic;
+
+      line-height: 0.95;
+    }
+
+
+    .type-script {
+
       font-family: var(--script);
-      font-size: 8rem;
-      line-height: 0.4;
-      display: block;
+
+      font-size: 5rem;
+
       color: var(--accent);
+
+      line-height: 0.9;
+    }
+
+
+    .type-ui {
+
+      margin-top: 30px;
+
+      font-family: var(--ui);
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.18em;
+
+      font-size: 0.75rem;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       ART DIRECTION
+    ========================= */
+
+    .art-direction {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      border: 1px solid var(--line);
+    }
+
+
+    .art-item {
+
+      padding: 26px;
+
+      min-height: 180px;
+
+      background: var(--white);
+    }
+
+
+    .art-item + .art-item {
+
+      border-left: 1px solid var(--line);
+    }
+
+
+    .art-item:nth-child(n + 4) {
+
+      border-top: 1px solid var(--line);
+    }
+
+
+    .art-item h3 {
+
+      font-size: 1.45rem;
+
+      margin-bottom: 10px;
+    }
+
+
+    .art-item p {
+
+      color: var(--muted);
+
+      font-size: 0.92rem;
+    }
+
+
+    /* =========================
+       QUOTE
+    ========================= */
+
+    .quote {
+
+      background: var(--white);
+
+      color: var(--ink);
+
+      padding: 64px 48px 56px;
+
+      text-align: center;
+
+      position: relative;
+
+      border: 1px solid var(--line);
+    }
+
+
+    .quote .mark {
+
+      font-family: var(--script);
+
+      font-size: 8rem;
+
+      line-height: 0.4;
+
+      display: block;
+
+      color: var(--accent);
+
       opacity: 0.6;
     }
 
+
     .quote p {
+
       font-family: var(--display);
+
       font-style: italic;
+
       font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+
       line-height: 1.15;
+
       max-width: 18ch;
+
       margin: 12px auto 0;
     }
 
+
     .quote span {
+
       display: block;
+
       margin-top: 22px;
 
       font-family: var(--ui);
+
       letter-spacing: 0.22em;
+
       text-transform: uppercase;
+
       font-size: 0.68rem;
+
       color: var(--muted);
     }
 
-    /* NEWSLETTER / PROJECT */
+
+    /* =========================
+       PROJECT
+    ========================= */
 
     .newsletter {
+
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 40px;
+
       align-items: end;
     }
 
+
     form {
+
       display: flex;
+
       gap: 0;
+
       margin-top: 20px;
     }
 
+
     input[type="email"] {
+
       flex: 1;
+
       border: 1px solid var(--line);
+
       border-right: 0;
+
       background: var(--white);
+
       padding: 14px 16px;
+
       font: inherit;
+
       color: var(--ink);
+
       border-radius: 0;
     }
 
+
     input[type="email"]::placeholder {
+
       color: var(--muted);
+
       opacity: 0.6;
     }
 
+
     input[type="email"]:focus {
+
       outline: 1px solid var(--accent);
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
+
       border-top: 1px solid var(--line);
+
       padding: 18px 0 28px;
+
       color: var(--muted);
 
       display: flex;
+
       justify-content: space-between;
+
       gap: 16px;
+
       flex-wrap: wrap;
 
       font-family: var(--ui);
+
       font-size: 0.68rem;
+
       letter-spacing: 0.16em;
+
       text-transform: uppercase;
     }
 
-    /* RESPONSIVE */
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
     @media (max-width: 900px) {
 
@@ -554,60 +1144,107 @@
         display: none;
       }
 
+
       .hero,
       .grid-3,
       .lookbook,
       .about,
       .newsletter,
-      .section-head {
+      .section-head,
+      .identity,
+      .type-system,
+      .art-direction {
         grid-template-columns: 1fr;
       }
+
+
+      .philosophy {
+        grid-template-columns: 1fr;
+      }
+
 
       .hero-copy {
         padding: 36px 0;
       }
 
+
       .hero-visual,
       .hero-visual img,
       .about img {
         min-height: 0;
+
         height: 420px;
       }
+
 
       .hero-visual,
       .about-copy,
       .card + .card,
-      .product + .product {
+      .product + .product,
+      .identity-box + .identity-box,
+      .type-box + .type-box,
+      .art-item + .art-item {
         border-left: 0;
       }
 
+
       .card + .card,
-      .product + .product {
+      .product + .product,
+      .art-item:nth-child(n + 2) {
         border-top: 1px solid var(--line);
       }
+
 
       .lede {
         text-align: left;
       }
 
+
       .logo {
         font-size: 2.6rem;
       }
+
+
+      .type-display {
+        font-size: 3rem;
+      }
+
+
+      .type-script {
+        font-size: 4rem;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
 
     <div class="wrap masthead">
-      <span>Vol. 01 — AILI</span>
-      <span>Brand Concept</span>
-      <span>Un universo sin etiquetas</span>
+
+      <span>
+        AILI — BRAND BOOK
+      </span>
+
+      <span>
+        VOL. 01
+      </span>
+
+      <span>
+        MEXICO CITY
+      </span>
+
     </div>
+
 
     <nav class="wrap">
 
@@ -615,15 +1252,30 @@
         Aili
       </a>
 
+
       <div class="links">
-        <a href="#colecciones">Universo</a>
-        <a href="#novedades">Productos</a>
-        <a href="#nosotros">Filosofía</a>
-        <a href="#contacto">Proyecto</a>
+
+        <a href="#mission">
+          Misión
+        </a>
+
+        <a href="#philosophy">
+          Filosofía
+        </a>
+
+        <a href="#identity">
+          Identidad
+        </a>
+
+        <a href="#art">
+          Dirección
+        </a>
+
       </div>
 
-      <a class="cta" href="#novedades">
-        Explorar Aili
+
+      <a class="cta" href="#contacto">
+        AILI
       </a>
 
     </nav>
@@ -633,65 +1285,98 @@
 
   <main>
 
-    <!-- HERO -->
+
+    <!-- =========================
+         01 — HERO
+    ========================= -->
 
     <section class="wrap hero" id="inicio">
 
+
       <div class="hero-copy">
 
+
         <p class="issue">
-          Fashion · Beauty · Lifestyle
+          Fashion · Footwear · Accessories
         </p>
+
 
         <h1>
-          <span class="script">freedom</span>
+
+          <span class="script">
+            who will you be
+          </span>
+
           Aili
+
         </h1>
 
+
         <p>
-          Un universo de moda creado para que cada persona elija qué usar,
-          cómo combinarlo y quién quiere ser. AILI reúne distintas expresiones
-          de estilo sin imponer edad, género ni una forma correcta de vestir.
+
+          Crear moda que permita a cada persona expresarse libremente,
+          a través de prendas, calzado y accesorios que combinan diseño,
+          versatilidad y personalidad.
+
         </p>
+
+
+        <p class="tagline">
+          WHO WILL YOU BE TODAY?
+        </p>
+
 
         <div class="hero-actions">
 
-          <a class="cta" href="#colecciones">
-            Explorar universo
+
+          <a class="cta" href="#mission">
+            Descubrir AILI
           </a>
 
-          <a class="ghost" href="#nosotros">
+
+          <a class="ghost" href="#philosophy">
             Nuestra filosofía
           </a>
 
+
         </div>
+
 
       </div>
 
 
       <div class="hero-visual">
 
+
         <span class="folio">
           01
         </span>
 
+
         <img
           src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
-          alt="Look de Aili"
+          alt="Dirección de arte AILI"
         />
 
+
         <span class="cover-label">
-          No labels · Just you
+          WHO WILL YOU BE TODAY?
         </span>
 
+
       </div>
+
 
     </section>
 
 
-    <!-- UNIVERSO -->
 
-    <section class="wrap" id="colecciones">
+    <!-- =========================
+         02 — MISSION & VISION
+    ========================= -->
+
+    <section class="wrap" id="mission">
+
 
       <div class="section-head">
 
@@ -699,37 +1384,45 @@
           02
         </span>
 
+
         <h2>
-          Un universo, muchas formas
+          Mission & Vision
         </h2>
 
+
         <p class="lede">
-          Una marca madre con distintas expresiones que pueden convivir y mezclarse
+          El propósito detrás de AILI
         </p>
 
       </div>
 
 
+
       <div class="grid-3">
 
-        <!-- ESSENTIAL -->
 
         <article class="card">
 
           <img
             src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
-            alt="AILI Essential"
+            alt="Misión AILI"
           />
+
 
           <div class="body">
 
             <h3>
-              AILI Essential
+              Misión
             </h3>
 
+
             <p class="muted">
-              Básicos y piezas versátiles para construir cualquier estilo.
-              La puerta de entrada al universo AILI.
+
+              Crear moda que permita a cada persona expresarse libremente,
+              a través de prendas, calzado y accesorios que combinan diseño,
+              versatilidad y personalidad, ofreciendo piezas que puedan
+              adaptarse a diferentes formas de vivir y de expresarse.
+
             </p>
 
           </div>
@@ -737,24 +1430,28 @@
         </article>
 
 
-        <!-- STUDIO -->
 
         <article class="card">
 
           <img
             src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80"
-            alt="AILI Studio"
+            alt="Visión AILI"
           />
+
 
           <div class="body">
 
             <h3>
-              AILI Studio
+              Visión
             </h3>
 
+
             <p class="muted">
-              Moda contemporánea, colecciones y piezas para experimentar,
-              combinar y expresarte sin etiquetas.
+
+              Convertir AILI en un universo global de moda y expresión
+              personal, donde diferentes estilos, identidades y formas
+              de vivir puedan coexistir sin etiquetas.
+
             </p>
 
           </div>
@@ -762,161 +1459,79 @@
         </article>
 
 
-        <!-- ATELIER -->
 
         <article class="card">
 
           <img
-            src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80"
-            alt="AILI Atelier"
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+            alt="Expansión AILI"
           />
+
 
           <div class="body">
 
             <h3>
-              AILI Atelier
+              El Universo
             </h3>
+
 
             <p class="muted">
-              Piezas especiales, edición limitada, mayor elaboración y
-              una propuesta de lujo dentro del mismo universo.
+
+              AILI comienza en la indumentaria y puede expandirse hacia
+              calzado, accesorios y nuevas formas de expresión creativa,
+              manteniendo una identidad común.
+
             </p>
 
           </div>
 
         </article>
 
+
       </div>
 
     </section>
 
 
-    <!-- PRODUCTOS -->
 
-    <section class="wrap rule" id="novedades">
+    <!-- =========================
+         03 — TAGLINE
+    ========================= -->
 
-      <div class="section-head">
+    <section class="wrap">
 
-        <span class="num">
-          03
+
+      <div class="quote">
+
+
+        <span class="mark">
+          A
         </span>
 
-        <h2>
-          Lookbook
-        </h2>
 
-        <p class="lede">
-          Ejemplos de producto · arquitectura de la marca
+        <p>
+          WHO WILL YOU BE TODAY?
         </p>
 
+
+        <span>
+          AILI — Brand Tagline
+        </span>
+
+
       </div>
 
-
-      <div class="lookbook">
-
-        <!-- CLOTHING -->
-
-        <article class="product">
-
-          <img
-            src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=700&q=80"
-            alt="Camisa Aili"
-          />
-
-          <div class="body">
-
-            <h3>
-              Camisa AILI
-            </h3>
-
-            <p class="price">
-              ESSENTIAL
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- STUDIO -->
-
-        <article class="product">
-
-          <img
-            src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80"
-            alt="Blazer Aili"
-          />
-
-          <div class="body">
-
-            <h3>
-              Blazer AILI
-            </h3>
-
-            <p class="price">
-              STUDIO
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- ACCESSORIES -->
-
-        <article class="product">
-
-          <img
-            src="https://images.unsplash.com/photo-1590874103328-eac38a941956?auto=format&fit=crop&w=700&q=80"
-            alt="Bolso Aili"
-          />
-
-          <div class="body">
-
-            <h3>
-              Bolso AILI
-            </h3>
-
-            <p class="price">
-              OBJECTS
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- FOOTWEAR -->
-
-        <article class="product">
-
-          <img
-            src="https://images.unsplash.com/photo-1611652022419-a73ad71db66e?auto=format&fit=crop&w=700&q=80"
-            alt="Calzado Aili"
-          />
-
-          <div class="body">
-
-            <h3>
-              Zapato AILI
-            </h3>
-
-            <p class="price">
-              FOOTWEAR
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
 
     </section>
 
 
-    <!-- FILOSOFÍA -->
 
-    <section class="wrap" id="nosotros">
+    <!-- =========================
+         04 — BRAND PHILOSOPHY
+    ========================= -->
+
+    <section class="wrap" id="philosophy">
+
 
       <div class="section-head">
 
@@ -924,103 +1539,619 @@
           04
         </span>
 
+
         <h2>
-          Editorial
+          Brand Philosophy
         </h2>
 
+
         <p class="lede">
-          La marca, en una página
+          Los principios que construyen AILI
         </p>
 
       </div>
 
 
-      <div class="about">
 
-        <img
-          src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1000&q=80"
-          alt="Estudio Aili"
-        />
+      <div class="philosophy">
 
 
-        <div class="about-copy">
+        <div class="value">
 
-          <p class="issue">
-            Desde el atelier
-          </p>
+          <span class="value-number">
+            01
+          </span>
 
-          <h2>
-            La ropa no te define. Tú decides qué significa.
-          </h2>
-
+          <h3>
+            Libertad
+          </h3>
 
           <p class="muted">
-
-            <span class="drop">
-              A
-            </span>
-
-            ili nace como una marca de moda pensada como un universo abierto.
-            Su propuesta parte de una idea simple: no clasificar a las personas
-            por edad, género o estilo. AILI puede ser casual, sofisticada,
-            experimental, urbana o elegante; la identidad de la marca está en
-            la libertad de elegir, combinar y reinterpretar cada pieza.
-
+            La posibilidad de elegir cómo quieres expresarte.
           </p>
 
-
-          <div class="stats">
-
-            <div class="stat">
-
-              <b>
-                ∞
-              </b>
-
-              <span class="muted">
-                Formas de usarla
-              </span>
-
-            </div>
+        </div>
 
 
-            <div class="stat">
 
-              <b>
-                01
-              </b>
+        <div class="value">
 
-              <span class="muted">
-                Universo de marca
-              </span>
+          <span class="value-number">
+            02
+          </span>
 
-            </div>
+          <h3>
+            Individualidad
+          </h3>
 
-
-            <div class="stat">
-
-              <b>
-                7+
-              </b>
-
-              <span class="muted">
-                Categorías futuras
-              </span>
-
-            </div>
-
-          </div>
+          <p class="muted">
+            Cada persona interpreta la moda a su propia manera.
+          </p>
 
         </div>
+
+
+
+        <div class="value">
+
+          <span class="value-number">
+            03
+          </span>
+
+          <h3>
+            Versatilidad
+          </h3>
+
+          <p class="muted">
+            Piezas capaces de adaptarse a diferentes momentos y formas de vivir.
+          </p>
+
+        </div>
+
+
+
+        <div class="value">
+
+          <span class="value-number">
+            04
+          </span>
+
+          <h3>
+            Creatividad
+          </h3>
+
+          <p class="muted">
+            La moda como espacio para experimentar y crear.
+          </p>
+
+        </div>
+
+
+
+        <div class="value">
+
+          <span class="value-number">
+            05
+          </span>
+
+          <h3>
+            Transformación
+          </h3>
+
+          <p class="muted">
+            Una misma persona puede convertirse en muchas versiones de sí misma.
+          </p>
+
+        </div>
+
+
+
+        <div class="value">
+
+          <span class="value-number">
+            06
+          </span>
+
+          <h3>
+            Sofisticación
+          </h3>
+
+          <p class="muted">
+            Diseño cuidado, intención y una identidad visual reconocible.
+          </p>
+
+        </div>
+
+
+
+        <div class="value">
+
+          <span class="value-number">
+            07
+          </span>
+
+          <h3>
+            Autenticidad
+          </h3>
+
+          <p class="muted">
+            Vestir desde quién eres, no desde quién deberías ser.
+          </p>
+
+        </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- MANIFIESTO -->
+
+    <!-- =========================
+         05 — BRAND ARCHITECTURE
+    ========================= -->
+
+    <section class="wrap rule">
+
+
+      <div class="section-head">
+
+        <span class="num">
+          05
+        </span>
+
+
+        <h2>
+          Brand Universe
+        </h2>
+
+
+        <p class="lede">
+          Una marca madre, múltiples expresiones
+        </p>
+
+      </div>
+
+
+
+      <div class="lookbook">
+
+
+        <article class="product">
+
+          <img
+            src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=700&q=80"
+            alt="AILI Essential"
+          />
+
+
+          <div class="body">
+
+            <h3>
+              Essential
+            </h3>
+
+            <p class="price">
+              BASICS
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="product">
+
+          <img
+            src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80"
+            alt="AILI Studio"
+          />
+
+
+          <div class="body">
+
+            <h3>
+              Studio
+            </h3>
+
+            <p class="price">
+              FASHION
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="product">
+
+          <img
+            src="https://images.unsplash.com/photo-1590874103328-eac38a941956?auto=format&fit=crop&w=700&q=80"
+            alt="AILI Objects"
+          />
+
+
+          <div class="body">
+
+            <h3>
+              Objects
+            </h3>
+
+            <p class="price">
+              ACCESSORIES
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <article class="product">
+
+          <img
+            src="https://images.unsplash.com/photo-1611652022419-a73ad71db66e?auto=format&fit=crop&w=700&q=80"
+            alt="AILI Footwear"
+          />
+
+
+          <div class="body">
+
+            <h3>
+              Footwear
+            </h3>
+
+            <p class="price">
+              SHOES
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         06 — VISUAL IDENTITY
+    ========================= -->
+
+    <section class="wrap" id="identity">
+
+
+      <div class="section-head">
+
+        <span class="num">
+          06
+        </span>
+
+
+        <h2>
+          Visual Identity
+        </h2>
+
+
+        <p class="lede">
+          El lenguaje visual de AILI
+        </p>
+
+      </div>
+
+
+
+      <div class="identity">
+
+
+        <div class="identity-box">
+
+          <p class="issue">
+            Color System
+          </p>
+
+
+          <h3>
+            Negro · Morado · Dorado
+          </h3>
+
+
+          <p class="muted">
+
+            Una combinación que busca equilibrar misterio,
+            sofisticación, creatividad y una identidad contemporánea.
+
+          </p>
+
+
+          <div class="swatches">
+
+
+            <div class="swatch black">
+              Black
+              <br>
+              #09030D
+            </div>
+
+
+            <div class="swatch purple">
+              Dark Purple
+              <br>
+              #2D183D
+            </div>
+
+
+            <div class="swatch gold">
+              Gold
+              <br>
+              #C9A45C
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <div class="identity-box">
+
+          <p class="issue">
+            Visual Rules
+          </p>
+
+
+          <h3>
+            Contraste + sofisticación
+          </h3>
+
+
+          <div class="identity-list">
+
+            <span>
+              Negro como base principal
+            </span>
+
+            <span>
+              Morado oscuro como profundidad e identidad
+            </span>
+
+            <span>
+              Dorado como acento premium
+            </span>
+
+            <span>
+              Espacios amplios y composición editorial
+            </span>
+
+            <span>
+              Contraste entre tipografía elegante y elementos contemporáneos
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         07 — LOGO + TYPOGRAPHY
+    ========================= -->
 
     <section class="wrap">
+
+
+      <div class="section-head">
+
+        <span class="num">
+          07
+        </span>
+
+
+        <h2>
+          Logo & Typography
+        </h2>
+
+
+        <p class="lede">
+          Sistema tipográfico de AILI
+        </p>
+
+      </div>
+
+
+
+      <div class="type-system">
+
+
+        <div class="type-box">
+
+
+          <p class="issue">
+            Display
+          </p>
+
+
+          <div class="type-display">
+            Aili
+          </div>
+
+
+          <p class="type-ui">
+            Bodoni Moda · Editorial · Luxury
+          </p>
+
+        </div>
+
+
+
+        <div class="type-box">
+
+
+          <p class="issue">
+            Script
+          </p>
+
+
+          <div class="type-script">
+            Aili
+          </div>
+
+
+          <p class="type-ui">
+            Imperial Script · Personal · Expressive
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         08 — ART DIRECTION
+    ========================= -->
+
+    <section class="wrap" id="art">
+
+
+      <div class="section-head">
+
+        <span class="num">
+          08
+        </span>
+
+
+        <h2>
+          Art Direction
+        </h2>
+
+
+        <p class="lede">
+          Cómo debe sentirse AILI visualmente
+        </p>
+
+      </div>
+
+
+
+      <div class="art-direction">
+
+
+        <div class="art-item">
+
+          <h3>
+            Fotografía
+          </h3>
+
+          <p>
+            Editorial, aspiracional y auténtica. Las imágenes deben mostrar
+            personalidad antes que una categoría específica de consumidor.
+          </p>
+
+        </div>
+
+
+
+        <div class="art-item">
+
+          <h3>
+            Iluminación
+          </h3>
+
+          <p>
+            Contrastes marcados, sombras profundas y momentos de luz
+            cuidadosamente dirigidos.
+          </p>
+
+        </div>
+
+
+
+        <div class="art-item">
+
+          <h3>
+            Modelos
+          </h3>
+
+          <p>
+            Diversidad de expresiones, apariencias y personalidades.
+            La persona interpreta AILI, no al revés.
+          </p>
+
+        </div>
+
+
+
+        <div class="art-item">
+
+          <h3>
+            Styling
+          </h3>
+
+          <p>
+            Mezcla de piezas sofisticadas, casuales, experimentales
+            y cotidianas. La combinación es parte de la identidad.
+          </p>
+
+        </div>
+
+
+
+        <div class="art-item">
+
+          <h3>
+            Texturas
+          </h3>
+
+          <p>
+            Materiales que transmitan calidad y contraste: superficies
+            satinadas, textiles naturales, cuero, metal y acabados táctiles.
+          </p>
+
+        </div>
+
+
+
+        <div class="art-item">
+
+          <h3>
+            Composición
+          </h3>
+
+          <p>
+            Editorial, limpia y cinematográfica. Espacio negativo,
+            tipografía protagonista y elementos cuidadosamente seleccionados.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MANIFIESTO
+    ========================= -->
+
+    <section class="wrap">
+
 
       <div class="quote">
 
@@ -1028,45 +2159,58 @@
           Aili
         </span>
 
+
         <p>
-          No existe una forma correcta de llevar AILI.
-          Una misma pieza puede convertirse en algo completamente
-          distinto según quién la use.
+          WHO WILL YOU BE TODAY?
         </p>
 
+
         <span>
-          Manifiesto AILI — Sin etiquetas, solo posibilidades
+          AILI — Fashion without labels
         </span>
 
+
       </div>
+
 
     </section>
 
 
-    <!-- PROYECTO -->
+
+    <!-- =========================
+         PROJECT
+    ========================= -->
 
     <section class="wrap" id="contacto">
 
+
       <div class="newsletter">
+
 
         <div>
 
           <p class="issue">
-            Proyecto AILI
+            AILI
           </p>
 
+
           <h2>
-            Construyamos el universo
+            The beginning of a universe.
           </h2>
 
         </div>
 
 
+
         <div>
 
           <p class="muted">
-            Una marca madre que puede crecer desde ropa hacia calzado,
-            accesorios, belleza y nuevas categorías sin perder su identidad.
+
+            AILI comienza con una idea: crear un universo global de moda
+            y expresión personal. Un proyecto capaz de crecer desde la
+            indumentaria hacia el calzado, los accesorios y nuevas formas
+            de expresión creativa.
+
           </p>
 
 
@@ -1080,6 +2224,7 @@
               required
             />
 
+
             <button
               class="cta"
               type="submit"
@@ -1091,31 +2236,41 @@
 
         </div>
 
+
       </div>
 
     </section>
 
+
   </main>
 
 
-  <!-- FOOTER -->
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer class="wrap">
 
-    <span>
-      © 2026 Aili
-    </span>
 
     <span>
-      AILI · Brand Concept
+      © 2026 AILI
     </span>
 
+
     <span>
-      Sin género · Sin edad · Sin etiquetas
+      WHO WILL YOU BE TODAY?
     </span>
+
+
+    <span>
+      Fashion · Expression · Freedom
+    </span>
+
 
   </footer>
 
 
 </body>
 </html>
+```
