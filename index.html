@@ -8,118 +8,1181 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600&family=Imperial+Script&family=Syne:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+
 <style>
 :root{--bg:#09030d;--panel:#13081e;--panel2:#170b22;--ink:#f0e6f6;--muted:#bda8cd;--line:#2d183d;--accent:#a855f7;--gold:#c9a45c;--display:'Bodoni Moda',serif;--script:'Imperial Script',cursive;--sans:'Tenor Sans',sans-serif;--ui:'Syne',sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:16px}body.lock{overflow:hidden}img{display:block;width:100%;object-fit:cover}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1220px,calc(100% - 40px));margin:auto}.topline{border-bottom:1px solid var(--line);font:11px var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:9px 0;display:flex;justify-content:space-between}.nav{height:84px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font:4rem/1 var(--script);color:var(--ink)}.navlinks{display:flex;gap:28px;font:12px var(--ui);text-transform:uppercase;letter-spacing:.12em}.navlinks a:hover{color:var(--gold)}.navactions{display:flex;align-items:center;gap:10px}.iconbtn,.goldbtn,.ghostbtn{border:1px solid var(--line);background:transparent;color:var(--ink);min-height:42px;padding:0 16px}.iconbtn:hover,.ghostbtn:hover{border-color:var(--gold);color:var(--gold)}.goldbtn{background:var(--gold);border-color:var(--gold);color:#160e12;font:700 11px var(--ui);letter-spacing:.12em;text-transform:uppercase}.goldbtn:hover{filter:brightness(1.08)}.cartcount{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:50%;background:var(--accent);color:white;font-size:10px;margin-left:5px}
-.hero{min-height:calc(100vh - 130px);display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:70px 7vw 70px 0}.eyebrow{font:11px var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}.hero h1{font:clamp(70px,10vw,150px)/.8 var(--display);font-weight:500;letter-spacing:-.05em}.hero h1 .script{font:clamp(62px,8vw,120px) var(--script);display:block;color:var(--accent);margin-left:8px}.hero p{max-width:530px;color:var(--muted);margin:34px 0;font-size:18px}.hero-actions{display:flex;gap:10px}.hero-visual{position:relative;min-height:620px;border-left:1px solid var(--line);overflow:hidden}.hero-visual img{height:100%;filter:saturate(.8)}.hero-label{position:absolute;bottom:25px;left:25px;background:rgba(9,3,13,.84);border:1px solid var(--line);padding:12px 16px;font:11px var(--ui);letter-spacing:.14em;text-transform:uppercase}.folio{position:absolute;right:20px;top:20px;z-index:2;color:var(--gold);font:11px var(--ui);letter-spacing:.15em}
-.shop{padding:90px 0}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}.sectionhead h2{font:clamp(42px,6vw,75px) var(--display);font-weight:500;line-height:.95}.sectionhead p{color:var(--muted);max-width:400px;text-align:right}.filters{border-block:1px solid var(--line);padding:16px 0;display:grid;grid-template-columns:1.5fr repeat(4,1fr) auto;gap:10px;margin-bottom:28px}.field{background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:12px 13px;outline:none;width:100%}.field:focus{border-color:var(--gold)}select.field{appearance:auto}.productgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.product{border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:var(--bg)}.productimg{aspect-ratio:3/4;overflow:hidden;position:relative;background:#120817}.productimg img{height:100%;transition:transform .6s}.product:hover .productimg img{transform:scale(1.035)}.badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);color:#160e12;padding:6px 9px;font:9px var(--ui);letter-spacing:.12em;text-transform:uppercase}.heart{position:absolute;top:10px;right:10px;z-index:2;border:1px solid var(--line);background:rgba(9,3,13,.75);color:var(--ink);width:36px;height:36px}.heart.active{color:var(--gold);border-color:var(--gold)}.productbody{padding:18px}.productbody .category{font:9px var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.productbody h3{font:22px var(--display);font-weight:500;margin:6px 0}.price{color:var(--gold);font:16px var(--ui)}.stock{font-size:12px;color:var(--muted);margin-top:8px}.product-actions{display:flex;gap:7px;margin-top:15px}.product-actions button{flex:1}.empty{grid-column:1/-1;padding:70px;text-align:center;color:var(--muted)}
-.shopnav{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);margin-bottom:22px}.shopnavitem{padding:18px 17px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-height:110px;transition:.2s}.shopnavitem:last-child{border-right:0}.shopnavitem span,.worldcard span{font:9px var(--ui);letter-spacing:.14em;color:var(--gold)}.shopnavitem strong{font:15px var(--ui);letter-spacing:.08em}.shopnavitem small{color:var(--muted);font-size:11px}.shopnavitem:hover,.shopnavitem.active{background:var(--panel);color:var(--gold)}.worlds{padding:90px 0;border-top:1px solid var(--line)}.worldgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.worldcard{min-height:190px;padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;transition:.25s}.worldcard strong{font:clamp(27px,3vw,44px) var(--display);font-weight:500}.worldcard em{font-style:normal;color:var(--muted);font-size:12px}.worldcard:hover{background:var(--panel);color:var(--gold)}
-.story{border-block:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}.story img{height:620px}.storycopy{padding:70px;display:flex;flex-direction:column;justify-content:center}.storycopy h2{font:clamp(42px,5vw,72px) var(--display);font-weight:500;line-height:.98;margin:12px 0 25px}.storycopy p{color:var(--muted);max-width:530px}.manifest{padding:100px 0;text-align:center}.manifest .script{font:clamp(55px,8vw,100px) var(--script);color:var(--accent)}.manifest h2{font:clamp(48px,7vw,100px) var(--display);font-weight:500;line-height:.9}.manifest p{color:var(--muted);max-width:560px;margin:28px auto}
-footer{border-top:1px solid var(--line);padding:28px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font:10px var(--ui);letter-spacing:.13em;text-transform:uppercase}.footerlogo{font:2.5rem var(--script);color:var(--ink)}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:20;opacity:0;pointer-events:none;transition:.25s}.overlay.open{opacity:1;pointer-events:auto}.drawer{position:fixed;right:0;top:0;height:100%;width:min(500px,100%);background:var(--panel);z-index:21;transform:translateX(100%);transition:.3s;border-left:1px solid var(--line);display:flex;flex-direction:column}.drawer.open{transform:none}.drawerhead{padding:22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.drawerhead h2{font:32px var(--display);font-weight:500}.close{border:0;background:none;color:var(--ink);font-size:25px}.cartitems{overflow:auto;flex:1;padding:10px 22px}.cartitem{display:grid;grid-template-columns:85px 1fr auto;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}.cartitem img{height:110px}.cartinfo h3{font:20px var(--display);font-weight:500}.cartmeta{font-size:11px;color:var(--muted);margin:4px 0}.qty{display:flex;align-items:center;gap:8px;margin-top:9px}.qty button{width:25px;height:25px;background:transparent;border:1px solid var(--line);color:var(--ink)}.remove{background:none;border:0;color:var(--muted);font-size:11px;text-decoration:underline;margin-top:7px}.cartprice{font:14px var(--ui);color:var(--gold);white-space:nowrap}.cartfoot{border-top:1px solid var(--line);padding:22px}.total{display:flex;justify-content:space-between;font:18px var(--ui);margin-bottom:15px}.total strong{color:var(--gold)}.full{width:100%}.cartempty{text-align:center;padding:70px 20px;color:var(--muted)}
-.modal{position:fixed;inset:50% auto auto 50%;transform:translate(-50%,-45%);width:min(900px,calc(100% - 30px));max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);z-index:30;opacity:0;pointer-events:none;transition:.25s}.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}.modalclose{position:absolute;right:15px;top:12px;z-index:3;background:rgba(9,3,13,.75);border:1px solid var(--line);color:white;width:38px;height:38px}.modalcontent{display:grid;grid-template-columns:1fr 1fr}.modalimage{min-height:600px}.modalimage img{height:100%;min-height:600px}.modalinfo{padding:45px}.modalinfo .category{font:10px var(--ui);letter-spacing:.14em;color:var(--muted);text-transform:uppercase}.modalinfo h2{font:clamp(38px,5vw,62px) var(--display);font-weight:500;line-height:.95;margin:12px 0}.modalprice{font:20px var(--ui);color:var(--gold);margin-bottom:25px}.modaldesc{color:var(--muted);margin-bottom:28px}.label{font:10px var(--ui);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px}.sizes{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px}.size{min-width:47px;height:42px;border:1px solid var(--line);background:transparent;color:var(--ink)}.size.selected,.size:hover{border-color:var(--gold);color:var(--gold)}.size:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}.quantity{display:flex;align-items:center;border:1px solid var(--line);width:max-content;margin-bottom:20px}.quantity button{border:0;background:transparent;color:var(--ink);width:40px;height:42px}.quantity span{width:40px;text-align:center}.notice{font-size:12px;color:var(--muted);margin-top:12px}
-.checkout{position:fixed;inset:0;background:var(--bg);z-index:40;overflow:auto;display:none}.checkout.open{display:block}.checkoutbar{height:80px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.checkoutbody{display:grid;grid-template-columns:1fr 400px;gap:50px;padding:60px 0}.checkout h1{font:55px var(--display);font-weight:500;margin-bottom:30px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formgroup{margin-bottom:12px}.formgroup.fullrow{grid-column:1/-1}.formgroup input,.formgroup select{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:14px;outline:none}.summary{border:1px solid var(--line);padding:25px;background:var(--panel);height:max-content}.summary h2{font:30px var(--display);font-weight:500;margin-bottom:20px}.summaryline{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.summarytotal{display:flex;justify-content:space-between;font:18px var(--ui);padding-top:18px}.success{padding:80px 20px;text-align:center;max-width:650px;margin:auto}.success .script{font:80px var(--script);color:var(--accent)}.success h2{font:55px var(--display);font-weight:500}.success p{color:var(--muted);margin:20px 0}
-.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:var(--gold);color:#160e12;padding:12px 18px;font:11px var(--ui);letter-spacing:.08em;z-index:60;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:950px){.navlinks{display:none}.hero,.story,.modalcontent,.checkoutbody{grid-template-columns:1fr}.hero-copy{padding:65px 0}.hero-visual{border-left:0;min-height:520px}.filters{grid-template-columns:1fr 1fr 1fr}.filters .search{grid-column:1/-1}.shopnav{grid-template-columns:1fr 1fr}.shopnavitem:nth-child(2n){border-right:0}.worldgrid{grid-template-columns:1fr 1fr}.productgrid{grid-template-columns:repeat(2,1fr)}.storycopy{padding:50px 30px}.story img{height:450px}.modalimage,.modalimage img{min-height:420px;height:420px}.checkoutbody{padding:35px 0}.summary{order:-1}}
-@media(max-width:560px){.wrap{width:min(100% - 24px,1220px)}.topline{font-size:8px}.nav{height:72px}.logo{font-size:3.2rem}.navactions .iconbtn{padding:0 10px}.navactions .goldbtn{display:none}.hero{min-height:auto}.hero h1{font-size:70px}.hero h1 .script{font-size:65px}.hero-visual{min-height:430px}.sectionhead{display:block}.sectionhead p{text-align:left;margin-top:12px}.filters{grid-template-columns:1fr 1fr}.filters .search{grid-column:1/-1}.filters .reset{grid-column:1/-1}.productgrid{grid-template-columns:1fr 1fr}.productbody{padding:12px}.productbody h3{font-size:18px}.product-actions .ghostbtn{font-size:0}.product-actions .ghostbtn:after{content:'+';font-size:18px}.storycopy{padding:45px 0}.manifest{padding:75px 0}.modalinfo{padding:28px 20px}.formgrid{grid-template-columns:1fr}.formgroup.fullrow{grid-column:auto}.checkout h1{font-size:45px}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:16px}
+body.lock{overflow:hidden}
+img{display:block;width:100%;object-fit:cover}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1220px,calc(100% - 40px));margin:auto}
+.topline{border-bottom:1px solid var(--line);font:11px var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:9px 0;display:flex;justify-content:space-between}
+.nav{height:84px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font:4rem/1 var(--script);color:var(--ink)}
+.navlinks{display:flex;gap:28px;font:12px var(--ui);text-transform:uppercase;letter-spacing:.12em}
+.navlinks a:hover{color:var(--gold)}
+.navactions{display:flex;align-items:center;gap:10px}
+.iconbtn,.goldbtn,.ghostbtn{border:1px solid var(--line);background:transparent;color:var(--ink);min-height:42px;padding:0 16px}
+.iconbtn:hover,.ghostbtn:hover{border-color:var(--gold);color:var(--gold)}
+.goldbtn{background:var(--gold);border-color:var(--gold);color:#160e12;font:700 11px var(--ui);letter-spacing:.12em;text-transform:uppercase}
+.goldbtn:hover{filter:brightness(1.08)}
+.cartcount{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:50%;background:var(--accent);color:white;font-size:10px;margin-left:5px}
+
+.hero{min-height:calc(100vh - 130px);display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:70px 7vw 70px 0}
+.eyebrow{font:11px var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.hero h1{font:clamp(70px,10vw,150px)/.8 var(--display);font-weight:500;letter-spacing:-.05em}
+.hero h1 .script{font:clamp(62px,8vw,120px) var(--script);display:block;color:var(--accent);margin-left:8px}
+.hero p{max-width:530px;color:var(--muted);margin:34px 0;font-size:18px}
+.hero-actions{display:flex;gap:10px}
+.hero-visual{position:relative;min-height:620px;border-left:1px solid var(--line);overflow:hidden}
+.hero-visual img{height:100%;filter:saturate(.8)}
+.hero-label{position:absolute;bottom:25px;left:25px;background:rgba(9,3,13,.84);border:1px solid var(--line);padding:12px 16px;font:11px var(--ui);letter-spacing:.14em;text-transform:uppercase}
+.folio{position:absolute;right:20px;top:20px;z-index:2;color:var(--gold);font:11px var(--ui);letter-spacing:.15em}
+
+.shop{padding:90px 0}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}
+.sectionhead h2{font:clamp(42px,6vw,75px) var(--display);font-weight:500;line-height:.95}
+.sectionhead p{color:var(--muted);max-width:400px;text-align:right}
+
+.filters{border-block:1px solid var(--line);padding:16px 0;display:grid;grid-template-columns:1.5fr repeat(4,1fr) auto;gap:10px;margin-bottom:28px}
+.field{background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:12px 13px;outline:none;width:100%}
+.field:focus{border-color:var(--gold)}
+select.field{appearance:auto}
+
+.productgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.product{border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:var(--bg)}
+.productimg{aspect-ratio:3/4;overflow:hidden;position:relative;background:#120817}
+.productimg img{height:100%;transition:transform .6s}
+.product:hover .productimg img{transform:scale(1.035)}
+.badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);color:#160e12;padding:6px 9px;font:9px var(--ui);letter-spacing:.12em;text-transform:uppercase}
+.heart{position:absolute;top:10px;right:10px;z-index:2;border:1px solid var(--line);background:rgba(9,3,13,.75);color:var(--ink);width:36px;height:36px}
+.heart.active{color:var(--gold);border-color:var(--gold)}
+.productbody{padding:18px}
+.productbody .category{font:9px var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.productbody h3{font:22px var(--display);font-weight:500;margin:6px 0}
+.price{color:var(--gold);font:16px var(--ui)}
+.stock{font-size:12px;color:var(--muted);margin-top:8px}
+.product-actions{display:flex;gap:7px;margin-top:15px}
+.product-actions button{flex:1}
+.empty{grid-column:1/-1;padding:70px;text-align:center;color:var(--muted)}
+
+.shopnav{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);margin-bottom:22px}
+.shopnavitem{padding:18px 17px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-height:110px;transition:.2s}
+.shopnavitem:last-child{border-right:0}
+.shopnavitem span,.worldcard span{font:9px var(--ui);letter-spacing:.14em;color:var(--gold)}
+.shopnavitem strong{font:15px var(--ui);letter-spacing:.08em}
+.shopnavitem small{color:var(--muted);font-size:11px}
+.shopnavitem:hover,.shopnavitem.active{background:var(--panel);color:var(--gold)}
+
+.worlds{padding:90px 0;border-top:1px solid var(--line)}
+.worldgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.worldcard{min-height:190px;padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+.worldcard strong{font:clamp(27px,3vw,44px) var(--display);font-weight:500}
+.worldcard em{font-style:normal;color:var(--muted);font-size:12px}
+.worldcard:hover{background:var(--panel);color:var(--gold)}
+
+.story{border-block:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}
+.story img{height:620px}
+.storycopy{padding:70px;display:flex;flex-direction:column;justify-content:center}
+.storycopy h2{font:clamp(42px,5vw,72px) var(--display);font-weight:500;line-height:.98;margin:12px 0 25px}
+.storycopy p{color:var(--muted);max-width:530px}
+
+.manifest{padding:100px 0;text-align:center}
+.manifest .script{font:clamp(55px,8vw,100px) var(--script);color:var(--accent)}
+.manifest h2{font:clamp(48px,7vw,100px) var(--display);font-weight:500;line-height:.9}
+.manifest p{color:var(--muted);max-width:560px;margin:28px auto}
+
+footer{border-top:1px solid var(--line);padding:28px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font:10px var(--ui);letter-spacing:.13em;text-transform:uppercase}
+.footerlogo{font:2.5rem var(--script);color:var(--ink)}
+
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:20;opacity:0;pointer-events:none;transition:.25s}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(500px,100%);background:var(--panel);z-index:21;transform:translateX(100%);transition:.3s;border-left:1px solid var(--line);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawerhead{padding:22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawerhead h2{font:32px var(--display);font-weight:500}
+.close{border:0;background:none;color:var(--ink);font-size:25px}
+.cartitems{overflow:auto;flex:1;padding:10px 22px}
+.cartitem{display:grid;grid-template-columns:85px 1fr auto;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.cartitem img{height:110px}
+.cartinfo h3{font:20px var(--display);font-weight:500}
+.cartmeta{font-size:11px;color:var(--muted);margin:4px 0}
+.qty{display:flex;align-items:center;gap:8px;margin-top:9px}
+.qty button{width:25px;height:25px;background:transparent;border:1px solid var(--line);color:var(--ink)}
+.remove{background:none;border:0;color:var(--muted);font-size:11px;text-decoration:underline;margin-top:7px}
+.cartprice{font:14px var(--ui);color:var(--gold);white-space:nowrap}
+.cartfoot{border-top:1px solid var(--line);padding:22px}
+.total{display:flex;justify-content:space-between;font:18px var(--ui);margin-bottom:15px}
+.total strong{color:var(--gold)}
+.full{width:100%}
+.cartempty{text-align:center;padding:70px 20px;color:var(--muted)}
+
+.modal{position:fixed;inset:50% auto auto 50%;transform:translate(-50%,-45%);width:min(900px,calc(100% - 30px));max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);z-index:30;opacity:0;pointer-events:none;transition:.25s}
+.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modalclose{position:absolute;right:15px;top:12px;z-index:3;background:rgba(9,3,13,.75);border:1px solid var(--line);color:white;width:38px;height:38px}
+.modalcontent{display:grid;grid-template-columns:1fr 1fr}
+.modalimage{min-height:600px}
+.modalimage img{height:100%;min-height:600px}
+.modalinfo{padding:45px}
+.modalinfo .category{font:10px var(--ui);letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.modalinfo h2{font:clamp(38px,5vw,62px) var(--display);font-weight:500;line-height:.95;margin:12px 0}
+.modalprice{font:20px var(--ui);color:var(--gold);margin-bottom:25px}
+.modaldesc{color:var(--muted);margin-bottom:28px}
+.label{font:10px var(--ui);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:9px}
+.sizes{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:25px}
+.size{min-width:44px;height:42px;background:transparent;color:var(--ink);border:1px solid var(--line)}
+.size:hover,.size.selected{border-color:var(--gold);color:var(--gold);background:var(--panel2)}
+.quantity{display:flex;align-items:center;gap:14px;margin-bottom:25px}
+.quantity button{width:36px;height:36px;background:transparent;border:1px solid var(--line);color:var(--ink)}
+.notice{font-size:11px;color:var(--muted);margin-top:14px}
+
+.checkout{position:fixed;inset:0;background:var(--bg);z-index:40;overflow:auto;display:none}
+.checkout.open{display:block}
+.checkoutinner{width:min(1100px,calc(100% - 40px));margin:auto;padding:45px 0}
+.checkouttop{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:25px;margin-bottom:40px}
+.checkouttop .logo{font-size:3rem}
+.checkoutbody{display:grid;grid-template-columns:1.5fr 1fr;gap:60px}
+.checkoutbody h1{font:clamp(42px,6vw,70px) var(--display);font-weight:500;margin-bottom:30px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.formgroup{display:flex;flex-direction:column;gap:7px}
+.formgroup.fullrow{grid-column:1/-1}
+.formgroup label{margin-bottom:0}
+.formgroup input,.formgroup select{background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:13px;outline:none}
+.formgroup input:focus,.formgroup select:focus{border-color:var(--gold)}
+.summary{border:1px solid var(--line);padding:25px;background:var(--panel);height:max-content}
+.summary h2{font:30px var(--display);font-weight:500;margin-bottom:20px}
+.summaryline{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid var(--line);padding:13px 0;font-size:13px}
+.summaryline small{color:var(--muted)}
+.summarytotal{display:flex;justify-content:space-between;margin-top:20px;font:18px var(--ui)}
+.summarytotal strong{color:var(--gold)}
+.success{text-align:center;padding:100px 20px}
+.success .script{font:80px var(--script);color:var(--accent)}
+.success h2{font:clamp(45px,6vw,80px) var(--display);font-weight:500}
+.success p{max-width:600px;margin:25px auto;color:var(--muted)}
+
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--gold);color:#160e12;padding:12px 18px;font:11px var(--ui);letter-spacing:.08em;z-index:50;opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:950px){
+.hero,.story,.checkoutbody{grid-template-columns:1fr}
+.hero-copy{padding-right:0}
+.hero-visual{border-left:0;border-top:1px solid var(--line)}
+.productgrid{grid-template-columns:repeat(2,1fr)}
+.worldgrid{grid-template-columns:repeat(2,1fr)}
+.shopnav{grid-template-columns:1fr 1fr}
+.shopnavitem:nth-child(2n){border-right:0}
+.filters{grid-template-columns:1fr 1fr}
+.story img{height:500px}
+}
+
+@media(max-width:600px){
+.wrap{width:min(100% - 24px,1220px)}
+.topline{font-size:9px}
+.nav{height:70px}
+.logo{font-size:3rem}
+.navlinks{display:none}
+.hero{min-height:auto}
+.hero-copy{padding:65px 0}
+.hero-visual{min-height:480px}
+.hero h1{font-size:65px}
+.hero p{font-size:16px}
+.sectionhead{display:block}
+.sectionhead p{text-align:left;margin-top:15px}
+.shop{padding:65px 0}
+.worlds{padding:65px 0}
+.productgrid{grid-template-columns:1fr 1fr}
+.productbody{padding:13px}
+.productbody h3{font-size:18px}
+.product-actions{margin-top:10px}
+.filters{grid-template-columns:1fr}
+.shopnav{grid-template-columns:1fr 1fr}
+.worldgrid{grid-template-columns:1fr 1fr}
+.worldcard{min-height:160px;padding:17px}
+.storycopy{padding:50px 25px}
+.story img{height:400px}
+.modalcontent{grid-template-columns:1fr}
+.modalimage,.modalimage img{min-height:420px;height:420px}
+.modalinfo{padding:30px 22px}
+.formgrid{grid-template-columns:1fr}
+.formgroup.fullrow{grid-column:auto}
+.checkoutinner{padding:25px 0}
+}
 </style>
 </head>
+
 <body>
-<div class="topline"><div class="wrap" style="display:flex;justify-content:space-between;width:100%"><span>AILI — SS26</span><span>WHO WILL YOU BE TODAY?</span><span>Envíos disponibles</span></div></div>
-<header class="wrap nav">
-<a class="logo" href="#inicio">Aili</a>
-<nav class="navlinks"><a href="#tienda">Shop AILI</a><a href="#worlds">The Worlds</a><a href="#novedades">Editorial</a><a href="#universo">AILI</a></nav>
-<div class="navactions"><button class="iconbtn" onclick="openWishlist()" aria-label="Favoritos">♡</button><button class="iconbtn" onclick="openCart()">Bolsa <span id="cartCount" class="cartcount">0</span></button></div>
+
+<div class="topline">
+  <div>AILI — SS26</div>
+  <div>WHO WILL YOU BE TODAY?</div>
+  <div>Envíos disponibles</div>
+</div>
+
+<header class="nav wrap">
+  <a class="logo" href="#">Aili</a>
+
+  <nav class="navlinks">
+    <a href="#tienda">Shop AILI</a>
+    <a href="#worlds">The Worlds</a>
+    <a href="#editorial">Editorial</a>
+    <a href="#aili">AILI</a>
+  </nav>
+
+  <div class="navactions">
+    <button class="iconbtn" onclick="openWishlist()">♡</button>
+    <button class="iconbtn" onclick="openCart()">Bag <span class="cartcount" id="cartCount">0</span></button>
+  </div>
 </header>
-<main>
-<section id="inicio" class="hero wrap">
-<div class="hero-copy"><div class="eyebrow">Nueva colección · AILI</div><h1><span class="script">Who</span>will you be<br>today?</h1><p>Moda para expresarte sin tener que elegir una sola versión de ti. Descubre prendas, calzado y accesorios que se adaptan a tu forma de vivir.</p><div class="hero-actions"><a class="goldbtn" href="#tienda">Comprar ahora</a><a class="ghostbtn" href="#universo">Descubrir AILI</a></div></div>
-<div class="hero-visual"><span class="folio">01 / 04</span><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85" alt="Nueva colección AILI"><div class="hero-label">Nueva temporada · SS26</div></div>
+
+<section class="hero wrap">
+  <div class="hero-copy">
+    <div class="eyebrow">THE NEW AILI</div>
+    <h1>Who will <span class="script">you</span> be today?</h1>
+    <p>Moda para explorar todas las versiones de ti. Piezas que se transforman contigo, sin etiquetas y sin límites.</p>
+
+    <div class="hero-actions">
+      <a class="goldbtn" href="#tienda">Explorar AILI</a>
+      <a class="ghostbtn" href="#worlds">Descubrir Worlds</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <span class="folio">01 / 26</span>
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85" alt="AILI campaign">
+    <div class="hero-label">SS26 — WHO WILL YOU BE TODAY?</div>
+  </div>
 </section>
-<section id="tienda" class="shop wrap">
-<div class="sectionhead"><div><div class="eyebrow">SHOP AILI</div><h2>Encuentra tu AILI</h2></div><p id="resultCount">Colección AILI</p></div>
-<div class="shopnav" aria-label="Shop AILI">
-<a class="shopnavitem active" href="#tienda" data-shop="all" onclick="setShop('all');return false;"><span>01</span><strong>NEW IN</strong><small>Lo nuevo.</small></a>
-<a class="shopnavitem" href="#tienda" data-shop="ropa" onclick="setShop('ropa');return false;"><span>02</span><strong>CLOTHING</strong><small>Toda la ropa.</small></a>
-<a class="shopnavitem" href="#tienda" data-shop="calzado" onclick="setShop('calzado');return false;"><span>03</span><strong>SHOES</strong><small>Calzado.</small></a>
-<a class="shopnavitem" href="#tienda" data-shop="bolsos" onclick="setShop('bolsos');return false;"><span>04</span><strong>BAGS</strong><small>Bolso y marroquinería.</small></a>
-<a class="shopnavitem" href="#tienda" data-shop="accesorios" onclick="setShop('accesorios');return false;"><span>05</span><strong>ACCESSORIES</strong><small>Accesorios.</small></a>
-</div>
-<div class="filters">
-<input id="search" class="field search" type="search" placeholder="Buscar prendas, calzado, bolsos, accesorios..." oninput="renderProducts()">
-<select id="category" class="field" onchange="renderProducts()"><option value="all">Shop · Todo AILI</option><option value="ropa">Clothing</option><option value="calzado">Shoes</option><option value="bolsos">Bags</option><option value="accesorios">Accessories</option></select>
-<select id="worldFilter" class="field" onchange="renderProducts()"><option value="all">World · Todos</option><option value="Everyday">Everyday</option><option value="Evening">Evening</option><option value="Formal">Formal</option><option value="Movement">Movement</option><option value="Statement">Statement</option><option value="Essentials">Essentials</option><option value="Limited">Limited</option><option value="Atelier">Atelier</option></select>
-<select id="sizeFilter" class="field" onchange="renderProducts()"><option value="all">Talla · Todas</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>Única</option></select>
-<select id="priceFilter" class="field" onchange="renderProducts()"><option value="all">Precio · Todos</option><option value="0-1000">Hasta $1,000</option><option value="1000-2000">$1,000 — $2,000</option><option value="2000-99999">Más de $2,000</option></select>
-<select id="sort" class="field" onchange="renderProducts()"><option value="featured">Ordenar · Destacados</option><option value="low">Precio menor</option><option value="high">Precio mayor</option><option value="name">Nombre</option></select>
-<button class="ghostbtn reset" onclick="resetFilters()">Limpiar</button>
-</div>
-<div id="productGrid" class="productgrid"></div>
+
+<section class="shop wrap" id="tienda">
+  <div class="sectionhead">
+    <div>
+      <div class="eyebrow">SHOP AILI</div>
+      <h2>Encuentra tu AILI</h2>
+    </div>
+    <p>Explora por categoría o descubre las piezas a través de los diferentes mundos de AILI.</p>
+  </div>
+
+  <div class="shopnav">
+    <button class="shopnavitem active" data-shop="all" onclick="setShop('all')">
+      <span>01</span>
+      <strong>NEW IN</strong>
+      <small>Lo último de AILI</small>
+    </button>
+
+    <button class="shopnavitem" data-shop="ropa" onclick="setShop('ropa')">
+      <span>02</span>
+      <strong>CLOTHING</strong>
+      <small>Prendas AILI</small>
+    </button>
+
+    <button class="shopnavitem" data-shop="calzado" onclick="setShop('calzado')">
+      <span>03</span>
+      <strong>SHOES</strong>
+      <small>Calzado AILI</small>
+    </button>
+
+    <button class="shopnavitem" data-shop="bolsos" onclick="setShop('bolsos')">
+      <span>04</span>
+      <strong>BAGS</strong>
+      <small>Objetos para llevar</small>
+    </button>
+
+    <button class="shopnavitem" data-shop="joyeria" onclick="setShop('joyeria')">
+      <span>05</span>
+      <strong>JEWELRY</strong>
+      <small>Detalles que expresan</small>
+    </button>
+
+    <button class="shopnavitem" data-shop="accesorios" onclick="setShop('accesorios')">
+      <span>06</span>
+      <strong>ACCESSORIES</strong>
+      <small>El toque final</small>
+    </button>
+  </div>
+
+  <div class="filters">
+    <input class="field" id="search" placeholder="Buscar pieza, categoría o World..." oninput="renderProducts()">
+
+    <select class="field" id="category" onchange="renderProducts()">
+      <option value="all">Todas las categorías</option>
+      <option value="ropa">Clothing</option>
+      <option value="calzado">Shoes</option>
+      <option value="bolsos">Bags</option>
+      <option value="joyeria">Jewelry</option>
+      <option value="accesorios">Accessories</option>
+    </select>
+
+    <select class="field" id="worldFilter" onchange="renderProducts()">
+      <option value="all">Todos los Worlds</option>
+      <option value="Everyday">Everyday</option>
+      <option value="Evening">Evening</option>
+      <option value="Formal">Formal</option>
+      <option value="Movement">Movement</option>
+      <option value="Statement">Statement</option>
+      <option value="Essentials">Essentials</option>
+      <option value="Limited">Limited</option>
+      <option value="Atelier">Atelier</option>
+    </select>
+
+    <select class="field" id="sizeFilter" onchange="renderProducts()">
+      <option value="all">Todas las tallas</option>
+      <option>XS</option>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+      <option>Única</option>
+    </select>
+
+    <select class="field" id="priceFilter" onchange="renderProducts()">
+      <option value="all">Todos los precios</option>
+      <option value="under1500">Menos de $1,500</option>
+      <option value="1500-3000">$1,500 — $3,000</option>
+      <option value="over3000">Más de $3,000</option>
+    </select>
+
+    <select class="field" id="sort" onchange="renderProducts()">
+      <option value="featured">Destacados</option>
+      <option value="low">Precio: menor a mayor</option>
+      <option value="high">Precio: mayor a menor</option>
+      <option value="name">Nombre</option>
+    </select>
+
+    <button class="ghostbtn" onclick="resetFilters()">Reset</button>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;color:var(--muted);font:10px var(--ui);letter-spacing:.12em;text-transform:uppercase">
+    <span id="resultCount">0 piezas</span>
+    <span>AILI COLLECTION</span>
+  </div>
+
+  <div class="productgrid" id="productGrid"></div>
 </section>
-<section id="worlds" class="worlds wrap">
-<div class="sectionhead"><div><div class="eyebrow">THE WORLDS OF AILI</div><h2>Elige tu mundo</h2></div><p>AILI no te encierra en una sola estética. Explora las piezas según la ocasión, la energía o la versión de ti que quieres llevar hoy.</p></div>
-<div class="worldgrid">
-<a href="#tienda" class="worldcard" onclick="setWorld('Everyday');return false;"><span>01</span><strong>Everyday</strong><em>Para todos los días.</em></a>
-<a href="#tienda" class="worldcard" onclick="setWorld('Evening');return false;"><span>02</span><strong>Evening</strong><em>Cuando el día se transforma.</em></a>
-<a href="#tienda" class="worldcard" onclick="setWorld('Formal');return false;"><span>03</span><strong>Formal</strong><em>Presencia, sin perderte.</em></a>
-<a href="#tienda" class="worldcard" onclick="setWorld('Movement');return false;"><span>04</span><strong>Movement</strong><em>Hecho para moverte.</em></a>
-<a href="#tienda" class="worldcard" onclick="setWorld('Statement');return false;"><span>05</span><strong>Statement</strong><em>Haz que hable por ti.</em></a>
-<a href="#tienda" class="worldcard" onclick="setWorld('Essentials');return false;"><span>06</span><strong>Essentials</strong><em>Lo que siempre funciona.</em></a>
-<a href="#tienda" class="worldcard" onclick="setWorld('Limited');return false;"><span>07</span><strong>Limited</strong><em>Solo por un momento.</em></a>
-<a href="#tienda" class="worldcard" onclick="setWorld('Atelier');return false;"><span>08</span><strong>Atelier</strong><em>La expresión más especial de AILI.</em></a>
-</div>
+
+<section class="worlds" id="worlds">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">THE WORLDS OF AILI</div>
+        <h2>Elige tu mundo</h2>
+      </div>
+
+      <p>Los Worlds no son categorías. Son universos, momentos y formas de expresión. Una misma pieza puede vivir en más de uno.</p>
+    </div>
+
+    <div class="worldgrid">
+      <button class="worldcard" onclick="setWorld('Everyday')">
+        <span>01</span>
+        <strong>Everyday</strong>
+        <em>The pieces you live in.</em>
+      </button>
+
+      <button class="worldcard" onclick="setWorld('Evening')">
+        <span>02</span>
+        <strong>Evening</strong>
+        <em>Made for after dark.</em>
+      </button>
+
+      <button class="worldcard" onclick="setWorld('Formal')">
+        <span>03</span>
+        <strong>Formal</strong>
+        <em>Dress with intention.</em>
+      </button>
+
+      <button class="worldcard" onclick="setWorld('Movement')">
+        <span>04</span>
+        <strong>Movement</strong>
+        <em>Made to move.</em>
+      </button>
+
+      <button class="worldcard" onclick="setWorld('Statement')">
+        <span>05</span>
+        <strong>Statement</strong>
+        <em>Make an entrance.</em>
+      </button>
+
+      <button class="worldcard" onclick="setWorld('Essentials')">
+        <span>06</span>
+        <strong>Essentials</strong>
+        <em>The pieces everything starts with.</em>
+      </button>
+
+      <button class="worldcard" onclick="setWorld('Limited')">
+        <span>07</span>
+        <strong>Limited</strong>
+        <em>Here for a moment.</em>
+      </button>
+
+      <button class="worldcard" onclick="setWorld('Atelier')">
+        <span>08</span>
+        <strong>Atelier</strong>
+        <em>Where AILI becomes art.</em>
+      </button>
+    </div>
+  </div>
 </section>
-<section id="novedades" class="story wrap"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85" alt="AILI editorial"><div class="storycopy"><div class="eyebrow">04 · AILI</div><h2>Una prenda.<br>Mil maneras de ser.</h2><p>AILI nace para que la ropa no te diga quién tienes que ser. Elige una pieza por cómo te hace sentir, por cómo quieres vivirla y por quién decides ser hoy.</p><br><a class="ghostbtn" style="width:max-content" href="#tienda">Explorar la colección</a></div></section>
-<section id="universo" class="manifest wrap"><div class="eyebrow">05 · Tu expresión</div><div class="script">Who will you be</div><h2>TODAY?</h2><p>Sin etiquetas. Sin una sola versión. Solo tú y todo lo que puedes ser.</p><a class="goldbtn" href="#tienda">Comprar AILI</a></section>
-</main>
-<footer class="wrap"><span class="footerlogo">Aili</span><span>© 2026 AILI</span><span>WHO WILL YOU BE TODAY?</span><span>Instagram · @aili</span></footer>
-<div id="overlay" class="overlay" onclick="closeAll()"></div>
-<aside id="cartDrawer" class="drawer" aria-label="Carrito"><div class="drawerhead"><h2>Tu bolsa</h2><button class="close" onclick="closeCart()">×</button></div><div id="cartItems" class="cartitems"></div><div class="cartfoot"><div class="total"><span>Total</span><strong id="cartTotal">$0</strong></div><button class="goldbtn full" onclick="startCheckout()">Finalizar compra</button><div class="notice">Tus artículos se guardan en esta sesión.</div></div></aside>
-<div id="productModal" class="modal"><button class="modalclose" onclick="closeProduct()">×</button><div id="modalContent" class="modalcontent"></div></div>
-<section id="checkout" class="checkout"><div class="wrap checkoutbar"><a class="logo" href="#">Aili</a><button class="ghostbtn" onclick="closeCheckout()">Volver a la bolsa</button></div><div id="checkoutBody" class="wrap checkoutbody"></div></section>
-<div id="toast" class="toast"></div>
+
+<section class="story wrap" id="editorial">
+  <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85" alt="AILI editorial">
+
+  <div class="storycopy">
+    <div class="eyebrow">AILI EDITORIAL</div>
+    <h2>More than what you wear.</h2>
+    <p>AILI nace para acompañar las diferentes versiones de una persona. No queremos decirte quién eres. Queremos darte la libertad de decidir quién quieres ser hoy.</p>
+  </div>
+</section>
+
+<section class="manifest wrap" id="aili">
+  <div class="script">AILI</div>
+  <h2>WHO WILL YOU BE TODAY?</h2>
+  <p>Moda, movimiento, creatividad y expresión personal. Un universo donde diferentes estilos pueden coexistir sin etiquetas.</p>
+</section>
+
+<footer class="wrap">
+  <div class="footerlogo">Aili</div>
+  <div>© 2026 AILI — WHO WILL YOU BE TODAY?</div>
+  <div>Privacy · Terms · Contact</div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<aside class="drawer" id="cartDrawer">
+  <div class="drawerhead">
+    <h2>Your Bag</h2>
+    <button class="close" onclick="closeCart()">×</button>
+  </div>
+
+  <div class="cartitems" id="cartItems"></div>
+
+  <div class="cartfoot">
+    <div class="total">
+      <span>Total</span>
+      <strong id="cartTotal">$0.00 MXN</strong>
+    </div>
+
+    <button class="goldbtn full" onclick="startCheckout()">Finalizar compra</button>
+  </div>
+</aside>
+
+<div class="modal" id="productModal">
+  <button class="modalclose" onclick="closeProduct()">×</button>
+  <div class="modalcontent" id="modalContent"></div>
+</div>
+
+<div class="checkout" id="checkout">
+  <div class="checkoutinner">
+    <div class="checkouttop">
+      <div class="logo">Aili</div>
+      <button class="ghostbtn" onclick="closeCheckout()">Volver</button>
+    </div>
+
+    <div class="checkoutbody" id="checkoutBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
 <script>
 const PRODUCTS=[
-{id:'AILI-001',name:'Blusa Lino',category:'ropa',worlds:['Everyday','Essentials','Atelier'],price:1290,sizes:['XS','S','M','L','XL'],stock:12,img:'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=85',desc:'Una silueta ligera y versátil para llevarla como quieras. Diseño limpio y fácil de transformar de día a noche.'},
-{id:'AILI-002',name:'Jeans Rectos',category:'ropa',worlds:['Everyday','Essentials','Movement'],price:1890,sizes:['XS','S','M','L','XL'],stock:8,img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=85',desc:'Denim de corte recto con una silueta atemporal pensada para combinar con todo.'},
-{id:'AILI-003',name:'Blazer AILI',category:'ropa',worlds:['Formal','Evening','Statement','Atelier'],price:2490,sizes:['XS','S','M','L','XL'],stock:6,img:'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=800&q=85',desc:'Estructura relajada y presencia definida. Úsalo formal, casual o completamente a tu manera.'},
-{id:'AILI-004',name:'Vestido Noir',category:'ropa',worlds:['Evening','Formal','Statement','Limited'],price:2190,sizes:['XS','S','M','L'],stock:5,img:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=85',desc:'Una pieza que cambia contigo. Silueta elegante y minimalista para crear distintas versiones del look.'},
-{id:'AILI-005',name:'Sneaker AILI',category:'calzado',worlds:['Everyday','Movement','Essentials'],price:1990,sizes:['36','37','38','39','40','41'],stock:10,img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85',desc:'Comodidad diaria con una estética limpia que funciona con cualquier universo AILI.'},
-{id:'AILI-006',name:'Boots No.01',category:'calzado',worlds:['Evening','Statement','Limited'],price:2890,sizes:['36','37','38','39','40'],stock:4,img:'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=800&q=85',desc:'Botas de presencia fuerte para construir looks con carácter.'},
-{id:'AILI-007',name:'Bolso Tote',category:'bolsos',worlds:['Everyday','Essentials','Atelier'],price:1590,sizes:['Única'],stock:15,img:'https://images.unsplash.com/photo-1590874103328-eac38a941956?auto=format&fit=crop&w=800&q=85',desc:'Espacioso, limpio y pensado para acompañarte todos los días.'},
-{id:'AILI-008',name:'Aros Minimal',category:'accesorios',worlds:['Everyday','Evening','Statement','Essentials'],price:690,sizes:['Única'],stock:20,img:'https://images.unsplash.com/photo-1611652022419-a73ad71db66e?auto=format&fit=crop&w=800&q=85',desc:'Un detalle sutil que puedes llevar solo o combinar con tus piezas favoritas.'}
+  {
+    id:'AILI-001',
+    name:'Blusa Lino',
+    price:1290,
+    category:'ropa',
+    worlds:['Everyday','Essentials','Atelier'],
+    sizes:['XS','S','M','L'],
+    stock:8,
+    desc:'Una pieza ligera y versátil pensada para acompañarte de distintas maneras.',
+    img:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85'
+  },
+  {
+    id:'AILI-002',
+    name:'Jeans Rectos',
+    price:1890,
+    category:'ropa',
+    worlds:['Everyday','Essentials','Movement'],
+    sizes:['XS','S','M','L','XL'],
+    stock:12,
+    desc:'El básico que puede convertirse en el punto de partida de cualquier versión de ti.',
+    img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=85'
+  },
+  {
+    id:'AILI-003',
+    name:'Blazer AILI',
+    price:3290,
+    category:'ropa',
+    worlds:['Formal','Evening','Statement','Atelier'],
+    sizes:['XS','S','M','L'],
+    stock:5,
+    desc:'Sastrería contemporánea diseñada para elevar cualquier momento.',
+    img:'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=900&q=85'
+  },
+  {
+    id:'AILI-004',
+    name:'Vestido Noir',
+    price:4290,
+    category:'ropa',
+    worlds:['Evening','Formal','Statement','Limited'],
+    sizes:['XS','S','M','L'],
+    stock:4,
+    desc:'Una silueta pensada para entrar en una habitación y dejar presencia.',
+    img:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=85'
+  },
+  {
+    id:'AILI-005',
+    name:'Sneaker AILI',
+    price:2490,
+    category:'calzado',
+    worlds:['Everyday','Movement','Essentials'],
+    sizes:['35','36','37','38','39','40'],
+    stock:9,
+    desc:'Diseño contemporáneo para moverte entre todos tus mundos.',
+    img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85'
+  },
+  {
+    id:'AILI-006',
+    name:'Boots No.01',
+    price:3890,
+    category:'calzado',
+    worlds:['Evening','Statement','Limited'],
+    sizes:['35','36','37','38','39','40'],
+    stock:5,
+    desc:'Una pieza con carácter para transformar cualquier look.',
+    img:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=85'
+  },
+  {
+    id:'AILI-007',
+    name:'Bolso Tote',
+    price:2190,
+    category:'bolsos',
+    worlds:['Everyday','Essentials','Atelier'],
+    sizes:['Única'],
+    stock:7,
+    desc:'Un objeto funcional pensado para acompañar tu día.',
+    img:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85'
+  },
+  {
+    id:'AILI-008',
+    name:'Aros Minimal',
+    price:890,
+    category:'joyeria',
+    worlds:['Everyday','Evening','Statement','Essentials'],
+    sizes:['Única'],
+    stock:10,
+    desc:'Un detalle sutil que puede transformar la expresión de una pieza.',
+    img:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85'
+  }
 ];
-let cart=JSON.parse(localStorage.getItem('aili_cart')||'[]');let wishlist=JSON.parse(localStorage.getItem('aili_wishlist')||'[]');let selectedProduct=null;let selectedSize=null;let modalQty=1;
-const money=n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
-const save=()=>{localStorage.setItem('aili_cart',JSON.stringify(cart));localStorage.setItem('aili_wishlist',JSON.stringify(wishlist));updateCartCount()};
-function updateCartCount(){document.getElementById('cartCount').textContent=cart.reduce((a,x)=>a+x.cantidad,0)}
-function renderProducts(){const q=document.getElementById('search').value.toLowerCase().trim(),cat=document.getElementById('category').value,size=document.getElementById('sizeFilter').value,price=document.getElementById('priceFilter').value,sort=document.getElementById('sort').value,world=document.getElementById('worldFilter').value;let arr=PRODUCTS.filter(p=>(!q||(`${p.name} ${p.category} ${p.id} ${p.worlds.join(' ')}`).toLowerCase().includes(q))&&(cat==='all'||p.category===cat)&&(world==='all'||p.worlds.includes(world))&&(size==='all'||p.sizes.includes(size))&&(price==='all'||(p.price>=+price.split('-')[0]&&p.price<=+price.split('-')[1])));if(sort==='low')arr.sort((a,b)=>a.price-b.price);if(sort==='high')arr.sort((a,b)=>b.price-a.price);if(sort==='name')arr.sort((a,b)=>a.name.localeCompare(b.name));document.getElementById('resultCount').textContent=`${arr.length} ${arr.length===1?'pieza disponible':'piezas disponibles'}`;document.getElementById('productGrid').innerHTML=arr.length?arr.map(card).join(''):`<div class="empty">No encontramos piezas con esos filtros.<br><button class="ghostbtn" style="margin-top:18px" onclick="resetFilters()">Ver toda la colección</button></div>`}
-function setShop(cat){document.getElementById('category').value=cat;document.getElementById('worldFilter').value='all';document.querySelectorAll('.shopnavitem').forEach(x=>x.classList.toggle('active',x.dataset.shop===cat));renderProducts();document.getElementById('tienda').scrollIntoView({behavior:'smooth'})}
-function setWorld(world){document.getElementById('worldFilter').value=world;document.getElementById('category').value='all';document.querySelectorAll('.shopnavitem').forEach(x=>x.classList.remove('active'));renderProducts();document.getElementById('tienda').scrollIntoView({behavior:'smooth'})}
-function resetFilters(){document.getElementById('search').value='';document.getElementById('category').value='all';document.getElementById('worldFilter').value='all';document.getElementById('sizeFilter').value='all';document.getElementById('priceFilter').value='all';document.getElementById('sort').value='featured';document.querySelectorAll('.shopnavitem').forEach(x=>x.classList.toggle('active',x.dataset.shop==='all'));renderProducts()}
-function card(p){const fav=wishlist.includes(p.id);return `<article class="product"><div class="productimg"><img src="${p.img}" alt="${p.name}">${p.stock<=5?'<span class="badge">Últimas piezas</span>':''}<button class="heart ${fav?'active':''}" onclick="toggleWish('${p.id}')">${fav?'♥':'♡'}</button></div><div class="productbody"><span class="category">${p.category==='ropa'?'Clothing':p.category==='calzado'?'Shoes':p.category==='bolsos'?'Bags':'Accessories'} · ${p.worlds[0]}</span><h3>${p.name}</h3><div class="price">${money(p.price)}</div><div class="stock">${p.stock>0?'Disponible':'Agotado'}</div><div class="product-actions"><button class="goldbtn" onclick="openProduct('${p.id}')">Ver pieza</button></div></div></article>`}
-function resetFilters(){document.getElementById('search').value='';document.getElementById('category').value='all';document.getElementById('sizeFilter').value='all';document.getElementById('priceFilter').value='all';document.getElementById('sort').value='featured';renderProducts()}
-function openProduct(id){selectedProduct=PRODUCTS.find(p=>p.id===id);selectedSize=null;modalQty=1;document.getElementById('modalContent').innerHTML=`<div class="modalimage"><img src="${selectedProduct.img}" alt="${selectedProduct.name}"></div><div class="modalinfo"><span class="category">${selectedProduct.category==='ropa'?'Clothing':selectedProduct.category==='calzado'?'Shoes':selectedProduct.category==='bolsos'?'Bags':'Accessories'} · ${selectedProduct.worlds.join(' · ')} · ${selectedProduct.id}</span><h2>${selectedProduct.name}</h2><div class="modalprice">${money(selectedProduct.price)}</div><p class="modaldesc">${selectedProduct.desc}</p><span class="label">Selecciona tu talla</span><div class="sizes">${selectedProduct.sizes.map(s=>`<button class="size" onclick="chooseSize('${s}')">${s}</button>`).join('')}</div><span class="label">Cantidad</span><div class="quantity"><button onclick="changeModalQty(-1)">−</button><span id="modalQty">1</span><button onclick="changeModalQty(1)">+</button></div><button class="goldbtn full" onclick="addSelectedToCart()">Añadir a la bolsa</button><div class="notice">${selectedProduct.stock} unidades disponibles.</div></div>`;document.getElementById('productModal').classList.add('open');document.getElementById('overlay').classList.add('open');document.body.classList.add('lock')}
-function chooseSize(s){selectedSize=s;document.querySelectorAll('.size').forEach(b=>b.classList.toggle('selected',b.textContent===s))}
-function changeModalQty(n){modalQty=Math.max(1,Math.min(selectedProduct.stock,modalQty+n));document.getElementById('modalQty').textContent=modalQty}
-function addSelectedToCart(){if(!selectedSize){showToast('Selecciona una talla para continuar');return}addToCart(selectedProduct,selectedSize,modalQty);closeProduct()}
-function addToCart(p,size,qty){const available=p.stock;const existing=cart.find(x=>x.id===p.id&&x.tallaSeleccionada===size);const current=existing?existing.cantidad:0;if(current+qty>available){showToast('No hay suficientes unidades disponibles');return}if(existing)existing.cantidad+=qty;else cart.push({id:p.id,nombre:p.name,precioUnitario:p.price,tallaSeleccionada:size,cantidad:qty,fechaHoraAgregado:new Date().toISOString(),disponibleEnInventario:true,img:p.img});save();showToast('Añadido a tu bolsa');renderCart()}
-function renderCart(){const el=document.getElementById('cartItems');if(!cart.length){el.innerHTML='<div class="cartempty">Tu bolsa está esperando algo especial.<br><a href="#tienda" onclick="closeCart()" style="color:var(--gold)">Explorar colección</a></div>';document.getElementById('cartTotal').textContent=money(0);return}el.innerHTML=cart.map((x,i)=>`<div class="cartitem"><img src="${x.img}" alt="${x.nombre}"><div class="cartinfo"><h3>${x.nombre}</h3><div class="cartmeta">Talla ${x.tallaSeleccionada} · ${money(x.precioUnitario)}</div><div class="qty"><button onclick="changeCartQty(${i},-1)">−</button><span>${x.cantidad}</span><button onclick="changeCartQty(${i},1)">+</button></div><button class="remove" onclick="removeCart(${i})">Eliminar</button></div><div class="cartprice">${money(x.precioUnitario*x.cantidad)}</div></div>`).join('');document.getElementById('cartTotal').textContent=money(cart.reduce((a,x)=>a+x.precioUnitario*x.cantidad,0))}
-function changeCartQty(i,n){const x=cart[i],p=PRODUCTS.find(p=>p.id===x.id);x.cantidad+=n;if(x.cantidad<=0){cart.splice(i,1)}else if(x.cantidad>p.stock){x.cantidad=p.stock;showToast('Llegaste al límite disponible')}save();renderCart()}
-function removeCart(i){cart.splice(i,1);save();renderCart()}
-function openCart(){renderCart();document.getElementById('cartDrawer').classList.add('open');document.getElementById('overlay').classList.add('open');document.body.classList.add('lock')}
-function closeCart(){document.getElementById('cartDrawer').classList.remove('open');document.getElementById('overlay').classList.remove('open');document.body.classList.remove('lock')}
-function closeProduct(){document.getElementById('productModal').classList.remove('open');if(!document.getElementById('cartDrawer').classList.contains('open')){document.getElementById('overlay').classList.remove('open');document.body.classList.remove('lock')}}
-function closeAll(){closeCart();closeProduct()}
-function toggleWish(id){wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];save();renderProducts();showToast(wishlist.includes(id)?'Añadido a favoritos':'Eliminado de favoritos')}
-function openWishlist(){const favs=PRODUCTS.filter(p=>wishlist.includes(p.id));if(!favs.length){showToast('Todavía no tienes favoritos');return}document.getElementById('search').value='';document.getElementById('category').value='all';document.getElementById('worldFilter').value='all';document.getElementById('sizeFilter').value='all';document.getElementById('priceFilter').value='all';document.getElementById('sort').value='featured';document.querySelectorAll('.shopnavitem').forEach(x=>x.classList.remove('active'));document.getElementById('productGrid').innerHTML=favs.map(card).join('');document.getElementById('resultCount').textContent=`${favs.length} favoritos`;document.getElementById('tienda').scrollIntoView({behavior:'smooth'})}
-function startCheckout(){if(!cart.length){showToast('Tu bolsa está vacía');return}closeCart();document.getElementById('checkout').classList.add('open');renderCheckout()}
-function renderCheckout(){const total=cart.reduce((a,x)=>a+x.precioUnitario*x.cantidad,0);document.getElementById('checkoutBody').innerHTML=`<div><h1>Finaliza tu compra</h1><form id="checkoutForm" onsubmit="completeOrder(event)"><div class="formgrid"><div class="formgroup"><label class="label">Nombre</label><input required name="name" placeholder="Tu nombre"></div><div class="formgroup"><label class="label">Apellidos</label><input required name="lastname" placeholder="Tus apellidos"></div><div class="formgroup fullrow"><label class="label">Correo electrónico</label><input required type="email" name="email" placeholder="tu@email.com"></div><div class="formgroup fullrow"><label class="label">Dirección</label><input required name="address" placeholder="Calle, número, colonia"></div><div class="formgroup"><label class="label">Ciudad</label><input required name="city" placeholder="Ciudad de México"></div><div class="formgroup"><label class="label">Código postal</label><input required name="zip" inputmode="numeric" placeholder="00000"></div><div class="formgroup fullrow"><label class="label">Forma de pago</label><select required name="payment"><option value="">Seleccionar</option><option>Tarjeta de crédito / débito</option><option>Transferencia</option></select></div></div><br><button class="goldbtn" type="submit">Confirmar pedido · ${money(total)}</button><p class="notice">Demo funcional de tienda: para aceptar pagos reales habrá que conectar una pasarela y un backend.</p></form></div><aside class="summary"><h2>Tu pedido</h2>${cart.map(x=>`<div class="summaryline"><span>${x.nombre} × ${x.cantidad}<br><small>Talla ${x.tallaSeleccionada}</small></span><strong>${money(x.precioUnitario*x.cantidad)}</strong></div>`).join('')}<div class="summarytotal"><span>Total</span><strong>${money(total)}</strong></div></aside>`}
-function completeOrder(e){e.preventDefault();const form=new FormData(e.target);const order='AILI-'+Date.now().toString().slice(-6);document.getElementById('checkoutBody').innerHTML=`<div class="success"><div class="script">Thank you</div><h2>Tu pedido está listo.</h2><p>Gracias, ${form.get('name')}. Hemos registrado tu pedido <strong>${order}</strong>. En una tienda conectada a producción, aquí se procesaría el pago y se enviaría la confirmación.</p><button class="goldbtn" onclick="finishOrder()">Volver a AILI</button></div>`;cart=[];save()}
-function finishOrder(){document.getElementById('checkout').classList.remove('open');location.hash='tienda';renderProducts()}
-function closeCheckout(){document.getElementById('checkout').classList.remove('open')}
-let toastTimer;function showToast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>e.classList.remove('show'),2200)}
-renderProducts();updateCartCount();
+
+let cart=JSON.parse(localStorage.getItem('ailiCart')||'[]');
+let wishlist=JSON.parse(localStorage.getItem('ailiWishlist')||'[]');
+let selectedProduct=null;
+let selectedSize=null;
+let modalQty=1;
+
+function money(n){
+  return new Intl.NumberFormat('es-MX',{
+    style:'currency',
+    currency:'MXN'
+  }).format(n);
+}
+
+function save(){
+  localStorage.setItem('ailiCart',JSON.stringify(cart));
+  localStorage.setItem('ailiWishlist',JSON.stringify(wishlist));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  document.getElementById('cartCount').textContent=cart.reduce((a,x)=>a+x.cantidad,0);
+}
+
+function renderProducts(){
+  const search=document.getElementById('search').value.toLowerCase().trim();
+  const category=document.getElementById('category').value;
+  const world=document.getElementById('worldFilter').value;
+  const size=document.getElementById('sizeFilter').value;
+  const price=document.getElementById('priceFilter').value;
+  const sort=document.getElementById('sort').value;
+
+  let list=PRODUCTS.filter(p=>{
+    const searchable=[
+      p.name,
+      p.category,
+      ...p.worlds
+    ].join(' ').toLowerCase();
+
+    const matchesSearch=!search||searchable.includes(search);
+    const matchesCategory=category==='all'||p.category===category;
+    const matchesWorld=world==='all'||p.worlds.includes(world);
+    const matchesSize=size==='all'||p.sizes.includes(size);
+
+    let matchesPrice=true;
+
+    if(price==='under1500') matchesPrice=p.price<1500;
+    if(price==='1500-3000') matchesPrice=p.price>=1500&&p.price<=3000;
+    if(price==='over3000') matchesPrice=p.price>3000;
+
+    return matchesSearch&&matchesCategory&&matchesWorld&&matchesSize&&matchesPrice;
+  });
+
+  if(sort==='low') list.sort((a,b)=>a.price-b.price);
+  if(sort==='high') list.sort((a,b)=>b.price-a.price);
+  if(sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
+
+  document.getElementById('resultCount').textContent=`${list.length} piezas`;
+
+  document.getElementById('productGrid').innerHTML=list.length
+    ? list.map(card).join('')
+    : '<div class="empty">No encontramos piezas con estos filtros.</div>';
+}
+
+function setShop(cat){
+  document.getElementById('category').value=cat;
+  document.getElementById('worldFilter').value='all';
+
+  document.querySelectorAll('.shopnavitem').forEach(x=>{
+    x.classList.toggle('active',x.dataset.shop===cat);
+  });
+
+  renderProducts();
+
+  document.getElementById('tienda').scrollIntoView({
+    behavior:'smooth'
+  });
+}
+
+function setWorld(world){
+  document.getElementById('worldFilter').value=world;
+  document.getElementById('category').value='all';
+
+  document.querySelectorAll('.shopnavitem').forEach(x=>{
+    x.classList.remove('active');
+  });
+
+  renderProducts();
+
+  document.getElementById('tienda').scrollIntoView({
+    behavior:'smooth'
+  });
+}
+
+function resetFilters(){
+  document.getElementById('search').value='';
+  document.getElementById('category').value='all';
+  document.getElementById('worldFilter').value='all';
+  document.getElementById('sizeFilter').value='all';
+  document.getElementById('priceFilter').value='all';
+  document.getElementById('sort').value='featured';
+
+  document.querySelectorAll('.shopnavitem').forEach(x=>{
+    x.classList.toggle('active',x.dataset.shop==='all');
+  });
+
+  renderProducts();
+}
+
+function categoryLabel(category){
+  if(category==='ropa') return 'Clothing';
+  if(category==='calzado') return 'Shoes';
+  if(category==='bolsos') return 'Bags';
+  if(category==='joyeria') return 'Jewelry';
+  return 'Accessories';
+}
+
+function card(p){
+  const fav=wishlist.includes(p.id);
+
+  return `
+    <article class="product">
+      <div class="productimg">
+        <img src="${p.img}" alt="${p.name}">
+        ${p.stock<=5?'<span class="badge">Últimas piezas</span>':''}
+        <button class="heart ${fav?'active':''}" onclick="toggleWish('${p.id}')">
+          ${fav?'♥':'♡'}
+        </button>
+      </div>
+
+      <div class="productbody">
+        <span class="category">
+          ${categoryLabel(p.category)} · ${p.worlds[0]}
+        </span>
+
+        <h3>${p.name}</h3>
+
+        <div class="price">${money(p.price)}</div>
+
+        <div class="stock">
+          ${p.stock>0?'Disponible':'Agotado'}
+        </div>
+
+        <div class="product-actions">
+          <button class="goldbtn" onclick="openProduct('${p.id}')">
+            Ver pieza
+          </button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function openProduct(id){
+  selectedProduct=PRODUCTS.find(p=>p.id===id);
+  selectedSize=null;
+  modalQty=1;
+
+  document.getElementById('modalContent').innerHTML=`
+    <div class="modalimage">
+      <img src="${selectedProduct.img}" alt="${selectedProduct.name}">
+    </div>
+
+    <div class="modalinfo">
+      <span class="category">
+        ${categoryLabel(selectedProduct.category)}
+        · ${selectedProduct.worlds.join(' · ')}
+        · ${selectedProduct.id}
+      </span>
+
+      <h2>${selectedProduct.name}</h2>
+
+      <div class="modalprice">
+        ${money(selectedProduct.price)}
+      </div>
+
+      <p class="modaldesc">
+        ${selectedProduct.desc}
+      </p>
+
+      <span class="label">Selecciona tu talla</span>
+
+      <div class="sizes">
+        ${selectedProduct.sizes.map(s=>`
+          <button class="size" onclick="chooseSize('${s}')">
+            ${s}
+          </button>
+        `).join('')}
+      </div>
+
+      <span class="label">Cantidad</span>
+
+      <div class="quantity">
+        <button onclick="changeModalQty(-1)">−</button>
+        <span id="modalQty">1</span>
+        <button onclick="changeModalQty(1)">+</button>
+      </div>
+
+      <button class="goldbtn full" onclick="addSelectedToCart()">
+        Añadir a la bolsa
+      </button>
+
+      <div class="notice">
+        ${selectedProduct.stock} unidades disponibles.
+      </div>
+    </div>
+  `;
+
+  document.getElementById('productModal').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.body.classList.add('lock');
+}
+
+function chooseSize(s){
+  selectedSize=s;
+
+  document.querySelectorAll('.size').forEach(b=>{
+    b.classList.toggle(
+      'selected',
+      b.textContent.trim()===s
+    );
+  });
+}
+
+function changeModalQty(n){
+  modalQty=Math.max(
+    1,
+    Math.min(
+      selectedProduct.stock,
+      modalQty+n
+    )
+  );
+
+  document.getElementById('modalQty').textContent=modalQty;
+}
+
+function addSelectedToCart(){
+  if(!selectedSize){
+    showToast('Selecciona una talla para continuar');
+    return;
+  }
+
+  addToCart(
+    selectedProduct,
+    selectedSize,
+    modalQty
+  );
+
+  closeProduct();
+}
+
+function addToCart(p,size,qty){
+  const available=p.stock;
+  const existing=cart.find(
+    x=>x.id===p.id&&x.tallaSeleccionada===size
+  );
+
+  const current=existing?existing.cantidad:0;
+
+  if(current+qty>available){
+    showToast('No hay suficientes unidades disponibles');
+    return;
+  }
+
+  if(existing){
+    existing.cantidad+=qty;
+  }else{
+    cart.push({
+      id:p.id,
+      nombre:p.name,
+      precioUnitario:p.price,
+      tallaSeleccionada:size,
+      cantidad:qty,
+      fechaHoraAgregado:new Date().toISOString(),
+      disponibleEnInventario:true,
+      img:p.img
+    });
+  }
+
+  save();
+  showToast('Añadido a tu bolsa');
+  renderCart();
+}
+
+function renderCart(){
+  const el=document.getElementById('cartItems');
+
+  if(!cart.length){
+    el.innerHTML=`
+      <div class="cartempty">
+        Tu bolsa está esperando algo especial.
+        <br>
+        <a href="#tienda" onclick="closeCart()" style="color:var(--gold)">
+          Explorar colección
+        </a>
+      </div>
+    `;
+
+    document.getElementById('cartTotal').textContent=money(0);
+    return;
+  }
+
+  el.innerHTML=cart.map((x,i)=>`
+    <div class="cartitem">
+      <img src="${x.img}" alt="${x.nombre}">
+
+      <div class="cartinfo">
+        <h3>${x.nombre}</h3>
+
+        <div class="cartmeta">
+          Talla ${x.tallaSeleccionada} · ${money(x.precioUnitario)}
+        </div>
+
+        <div class="qty">
+          <button onclick="changeCartQty(${i},-1)">−</button>
+          <span>${x.cantidad}</span>
+          <button onclick="changeCartQty(${i},1)">+</button>
+        </div>
+
+        <button class="remove" onclick="removeCart(${i})">
+          Eliminar
+        </button>
+      </div>
+
+      <div class="cartprice">
+        ${money(x.precioUnitario*x.cantidad)}
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('cartTotal').textContent=money(
+    cart.reduce(
+      (a,x)=>a+x.precioUnitario*x.cantidad,
+      0
+    )
+  );
+}
+
+function changeCartQty(i,n){
+  const x=cart[i];
+  const p=PRODUCTS.find(p=>p.id===x.id);
+
+  x.cantidad+=n;
+
+  if(x.cantidad<=0){
+    cart.splice(i,1);
+  }else if(x.cantidad>p.stock){
+    x.cantidad=p.stock;
+    showToast('Llegaste al límite disponible');
+  }
+
+  save();
+  renderCart();
+}
+
+function removeCart(i){
+  cart.splice(i,1);
+  save();
+  renderCart();
+}
+
+function openCart(){
+  renderCart();
+
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.body.classList.add('lock');
+}
+
+function closeCart(){
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.body.classList.remove('lock');
+}
+
+function closeProduct(){
+  document.getElementById('productModal').classList.remove('open');
+
+  if(!document.getElementById('cartDrawer').classList.contains('open')){
+    document.getElementById('overlay').classList.remove('open');
+    document.body.classList.remove('lock');
+  }
+}
+
+function closeAll(){
+  closeCart();
+  closeProduct();
+}
+
+function toggleWish(id){
+  wishlist=wishlist.includes(id)
+    ? wishlist.filter(x=>x!==id)
+    : [...wishlist,id];
+
+  save();
+  renderProducts();
+
+  showToast(
+    wishlist.includes(id)
+      ? 'Añadido a favoritos'
+      : 'Eliminado de favoritos'
+  );
+}
+
+function openWishlist(){
+  const favs=PRODUCTS.filter(
+    p=>wishlist.includes(p.id)
+  );
+
+  if(!favs.length){
+    showToast('Todavía no tienes favoritos');
+    return;
+  }
+
+  document.getElementById('search').value='';
+  document.getElementById('category').value='all';
+  document.getElementById('worldFilter').value='all';
+  document.getElementById('sizeFilter').value='all';
+  document.getElementById('priceFilter').value='all';
+  document.getElementById('sort').value='featured';
+
+  document.querySelectorAll('.shopnavitem').forEach(
+    x=>x.classList.remove('active')
+  );
+
+  document.getElementById('productGrid').innerHTML=
+    favs.map(card).join('');
+
+  document.getElementById('resultCount').textContent=
+    `${favs.length} favoritos`;
+
+  document.getElementById('tienda').scrollIntoView({
+    behavior:'smooth'
+  });
+}
+
+function startCheckout(){
+  if(!cart.length){
+    showToast('Tu bolsa está vacía');
+    return;
+  }
+
+  closeCart();
+
+  document.getElementById('checkout').classList.add('open');
+
+  renderCheckout();
+}
+
+function renderCheckout(){
+  const total=cart.reduce(
+    (a,x)=>a+x.precioUnitario*x.cantidad,
+    0
+  );
+
+  document.getElementById('checkoutBody').innerHTML=`
+    <div>
+      <h1>Finaliza tu compra</h1>
+
+      <form id="checkoutForm" onsubmit="completeOrder(event)">
+
+        <div class="formgrid">
+
+          <div class="formgroup">
+            <label class="label">Nombre</label>
+            <input required name="name" placeholder="Tu nombre">
+          </div>
+
+          <div class="formgroup">
+            <label class="label">Apellidos</label>
+            <input required name="lastname" placeholder="Tus apellidos">
+          </div>
+
+          <div class="formgroup fullrow">
+            <label class="label">Correo electrónico</label>
+            <input required type="email" name="email" placeholder="tu@email.com">
+          </div>
+
+          <div class="formgroup fullrow">
+            <label class="label">Dirección</label>
+            <input required name="address" placeholder="Calle, número, colonia">
+          </div>
+
+          <div class="formgroup">
+            <label class="label">Ciudad</label>
+            <input required name="city" placeholder="Ciudad de México">
+          </div>
+
+          <div class="formgroup">
+            <label class="label">Código postal</label>
+            <input required name="zip" inputmode="numeric" placeholder="00000">
+          </div>
+
+          <div class="formgroup fullrow">
+            <label class="label">Forma de pago</label>
+
+            <select required name="payment">
+              <option value="">Seleccionar</option>
+              <option>Tarjeta de crédito / débito</option>
+              <option>Transferencia</option>
+            </select>
+          </div>
+
+        </div>
+
+        <br>
+
+        <button class="goldbtn" type="submit">
+          Confirmar pedido · ${money(total)}
+        </button>
+
+        <p class="notice">
+          Demo funcional de tienda: para aceptar pagos reales habrá que conectar una pasarela y un backend.
+        </p>
+
+      </form>
+    </div>
+
+    <aside class="summary">
+
+      <h2>Tu pedido</h2>
+
+      ${cart.map(x=>`
+        <div class="summaryline">
+          <span>
+            ${x.nombre} × ${x.cantidad}
+            <br>
+            <small>Talla ${x.tallaSeleccionada}</small>
+          </span>
+
+          <strong>
+            ${money(x.precioUnitario*x.cantidad)}
+          </strong>
+        </div>
+      `).join('')}
+
+      <div class="summarytotal">
+        <span>Total</span>
+        <strong>${money(total)}</strong>
+      </div>
+
+    </aside>
+  `;
+}
+
+function completeOrder(e){
+  e.preventDefault();
+
+  const form=new FormData(e.target);
+  const order='AILI-'+Date.now().toString().slice(-6);
+
+  document.getElementById('checkoutBody').innerHTML=`
+    <div class="success">
+
+      <div class="script">Thank you</div>
+
+      <h2>Tu pedido está listo.</h2>
+
+      <p>
+        Gracias, ${form.get('name')}.
+        Hemos registrado tu pedido <strong>${order}</strong>.
+        En una tienda conectada a producción, aquí se procesaría
+        el pago y se enviaría la confirmación.
+      </p>
+
+      <button class="goldbtn" onclick="finishOrder()">
+        Volver a AILI
+      </button>
+
+    </div>
+  `;
+
+  cart=[];
+  save();
+}
+
+function finishOrder(){
+  document.getElementById('checkout').classList.remove('open');
+  location.hash='tienda';
+  renderProducts();
+}
+
+function closeCheckout(){
+  document.getElementById('checkout').classList.remove('open');
+}
+
+let toastTimer;
+
+function showToast(t){
+  const e=document.getElementById('toast');
+
+  e.textContent=t;
+  e.classList.add('show');
+
+  clearTimeout(toastTimer);
+
+  toastTimer=setTimeout(
+    ()=>e.classList.remove('show'),
+    2200
+  );
+}
+
+renderProducts();
+updateCartCount();
 </script>
+
 </body>
 </html>
