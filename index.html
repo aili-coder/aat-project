@@ -802,146 +802,55 @@ function chooseSize(s){
   });
 }
 
-function changeModalQty(n){
-  modalQty=Math.max(
-    1,
-    Math.min(
-      selectedProduct.stock,
-      modalQty+n
-    )
-  );
-
+function changeModalQty(delta){
+  modalQty=Math.max(1, Math.min(selectedProduct.stock, modalQty+delta));
   document.getElementById('modalQty').textContent=modalQty;
 }
 
 function addSelectedToCart(){
-  if(!selectedSize){
-    showToast('Selecciona una talla para continuar');
+  if(!selectedSize && selectedProduct.sizes.length > 0){
+    showToast('Por favor selecciona una talla');
     return;
   }
 
-  addToCart(
-    selectedProduct,
-    selectedSize,
-    modalQty
-  );
+  const existingIndex = cart.findIndex(x => x.id === selectedProduct.id && x.talla === selectedSize);
 
-  closeProduct();
-}
-
-function addToCart(p,size,qty){
-  const available=p.stock;
-  const existing=cart.find(
-    x=>x.id===p.id&&x.tallaSeleccionada===size
-  );
-
-  const current=existing?existing.cantidad:0;
-
-  if(current+qty>available){
-    showToast('No hay suficientes unidades disponibles');
-    return;
-  }
-
-  if(existing){
-    existing.cantidad+=qty;
-  }else{
+  if(existingIndex > -1){
+    cart[existingIndex].cantidad += modalQty;
+  } else {
     cart.push({
-      id:p.id,
-      nombre:p.name,
-      precioUnitario:p.price,
-      tallaSeleccionada:size,
-      cantidad:qty,
-      fechaHoraAgregado:new Date().toISOString(),
-      disponibleEnInventario:true,
-      img:p.img
+      id: selectedProduct.id,
+      nombre: selectedProduct.name,
+      precio: selectedProduct.price,
+      talla: selectedSize || 'Única',
+      cantidad: modalQty,
+      imagen: selectedProduct.img,
+      fechaAgregado: new Date().toISOString(),
+      disponible: selectedProduct.stock > 0
     });
   }
 
   save();
-  showToast('Añadido a tu bolsa');
-  renderCart();
+  closeProduct();
+  openCart();
+  showToast('Pieza añadida a tu bolsa');
 }
 
-function renderCart(){
-  const el=document.getElementById('cartItems');
-
-  if(!cart.length){
-    el.innerHTML=`
-      <div class="cartempty">
-        Tu bolsa está esperando algo especial.
-        <br>
-        <a href="#tienda" onclick="closeCart()" style="color:var(--gold)">
-          Explorar colección
-        </a>
-      </div>
-    `;
-
-    document.getElementById('cartTotal').textContent=money(0);
-    return;
+function toggleWish(id){
+  const index = wishlist.indexOf(id);
+  if(index > -1){
+    wishlist.splice(index, 1);
+    showToast('Removido de favoritos');
+  } else {
+    wishlist.push(id);
+    showToast('Añadido a favoritos');
   }
-
-  el.innerHTML=cart.map((x,i)=>`
-    <div class="cartitem">
-      <img src="${x.img}" alt="${x.nombre}">
-
-      <div class="cartinfo">
-        <h3>${x.nombre}</h3>
-
-        <div class="cartmeta">
-          Talla ${x.tallaSeleccionada} · ${money(x.precioUnitario)}
-        </div>
-
-        <div class="qty">
-          <button onclick="changeCartQty(${i},-1)">−</button>
-          <span>${x.cantidad}</span>
-          <button onclick="changeCartQty(${i},1)">+</button>
-        </div>
-
-        <button class="remove" onclick="removeCart(${i})">
-          Eliminar
-        </button>
-      </div>
-
-      <div class="cartprice">
-        ${money(x.precioUnitario*x.cantidad)}
-      </div>
-    </div>
-  `).join('');
-
-  document.getElementById('cartTotal').textContent=money(
-    cart.reduce(
-      (a,x)=>a+x.precioUnitario*x.cantidad,
-      0
-    )
-  );
-}
-
-function changeCartQty(i,n){
-  const x=cart[i];
-  const p=PRODUCTS.find(p=>p.id===x.id);
-
-  x.cantidad+=n;
-
-  if(x.cantidad<=0){
-    cart.splice(i,1);
-  }else if(x.cantidad>p.stock){
-    x.cantidad=p.stock;
-    showToast('Llegaste al límite disponible');
-  }
-
   save();
-  renderCart();
-}
-
-function removeCart(i){
-  cart.splice(i,1);
-  save();
-  renderCart();
+  renderProducts();
 }
 
 function openCart(){
   renderCart();
-
   document.getElementById('cartDrawer').classList.add('open');
   document.getElementById('overlay').classList.add('open');
   document.body.classList.add('lock');
@@ -949,237 +858,176 @@ function openCart(){
 
 function closeCart(){
   document.getElementById('cartDrawer').classList.remove('open');
-  document.getElementById('overlay').classList.remove('open');
-  document.body.classList.remove('lock');
-}
-
-function closeProduct(){
-  document.getElementById('productModal').classList.remove('open');
-
-  if(!document.getElementById('cartDrawer').classList.contains('open')){
+  if(!document.getElementById('productModal').classList.contains('open')){
     document.getElementById('overlay').classList.remove('open');
     document.body.classList.remove('lock');
   }
 }
 
+function closeProduct(){
+  document.getElementById('productModal').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.body.classList.remove('lock');
+}
+
 function closeAll(){
   closeCart();
   closeProduct();
+  closeCheckout();
 }
 
-function toggleWish(id){
-  wishlist=wishlist.includes(id)
-    ? wishlist.filter(x=>x!==id)
-    : [...wishlist,id];
+function renderCart(){
+  const container = document.getElementById('cartItems');
 
+  if(cart.length === 0){
+    container.innerHTML = '<div class="cartempty">Tu bolsa está vacía.</div>';
+    document.getElementById('cartTotal').textContent = money(0);
+    return;
+  }
+
+  container.innerHTML = cart.map((item, index) => `
+    <div class="cartitem">
+      <img src="${item.imagen}" alt="${item.nombre}">
+      <div class="cartinfo">
+        <h3>${item.nombre}</h3>
+        <div class="cartmeta">Talla: ${item.talla}</div>
+        <div class="qty">
+          <button onclick="updateQty(${index}, -1)">−</button>
+          <span>${item.cantidad}</span>
+          <button onclick="updateQty(${index}, 1)">+</button>
+        </div>
+        <button class="remove" onclick="removeItem(${index})">Eliminar</button>
+      </div>
+      <div class="cartprice">${money(item.precio * item.cantidad)}</div>
+    </div>
+  `).join('');
+
+  const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+  document.getElementById('cartTotal').textContent = money(total);
+}
+
+function updateQty(index, delta){
+  cart[index].cantidad += delta;
+  if(cart[index].cantidad <= 0){
+    cart.splice(index, 1);
+  }
   save();
-  renderProducts();
+  renderCart();
+}
 
-  showToast(
-    wishlist.includes(id)
-      ? 'Añadido a favoritos'
-      : 'Eliminado de favoritos'
-  );
+function removeItem(index){
+  cart.splice(index, 1);
+  save();
+  renderCart();
 }
 
 function openWishlist(){
-  const favs=PRODUCTS.filter(
-    p=>wishlist.includes(p.id)
-  );
-
-  if(!favs.length){
-    showToast('Todavía no tienes favoritos');
+  if(wishlist.length === 0){
+    showToast('No tienes prendas en favoritos');
     return;
   }
-
-  document.getElementById('search').value='';
-  document.getElementById('category').value='all';
-  document.getElementById('worldFilter').value='all';
-  document.getElementById('sizeFilter').value='all';
-  document.getElementById('priceFilter').value='all';
-  document.getElementById('sort').value='featured';
-
-  document.querySelectorAll('.shopnavitem').forEach(
-    x=>x.classList.remove('active')
-  );
-
-  document.getElementById('productGrid').innerHTML=
-    favs.map(card).join('');
-
-  document.getElementById('resultCount').textContent=
-    `${favs.length} favoritos`;
-
-  document.getElementById('tienda').scrollIntoView({
-    behavior:'smooth'
-  });
+  document.getElementById('search').value = '';
+  document.getElementById('category').value = 'all';
+  document.getElementById('worldFilter').value = 'all';
+  
+  let list = PRODUCTS.filter(p => wishlist.includes(p.id));
+  document.getElementById('resultCount').textContent = `${list.length} piezas en Wishlist`;
+  document.getElementById('productGrid').innerHTML = list.map(card).join('');
+  document.getElementById('tienda').scrollIntoView({ behavior: 'smooth' });
 }
 
 function startCheckout(){
-  if(!cart.length){
+  if(cart.length === 0){
     showToast('Tu bolsa está vacía');
     return;
   }
-
   closeCart();
 
-  document.getElementById('checkout').classList.add('open');
+  const total = cart.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
 
-  renderCheckout();
-}
-
-function renderCheckout(){
-  const total=cart.reduce(
-    (a,x)=>a+x.precioUnitario*x.cantidad,
-    0
-  );
-
-  document.getElementById('checkoutBody').innerHTML=`
+  document.getElementById('checkoutBody').innerHTML = `
     <div>
-      <h1>Finaliza tu compra</h1>
-
-      <form id="checkoutForm" onsubmit="completeOrder(event)">
-
+      <h1>Finalizar Compra</h1>
+      <form onsubmit="completeOrder(event)">
         <div class="formgrid">
-
           <div class="formgroup">
-            <label class="label">Nombre</label>
-            <input required name="name" placeholder="Tu nombre">
+            <label>Nombre</label>
+            <input type="text" required placeholder="Tu nombre">
           </div>
-
           <div class="formgroup">
-            <label class="label">Apellidos</label>
-            <input required name="lastname" placeholder="Tus apellidos">
+            <label>Apellido</label>
+            <input type="text" required placeholder="Tu apellido">
           </div>
-
           <div class="formgroup fullrow">
-            <label class="label">Correo electrónico</label>
-            <input required type="email" name="email" placeholder="tu@email.com">
+            <label>Correo electrónico</label>
+            <input type="email" required placeholder="tu@email.com">
           </div>
-
           <div class="formgroup fullrow">
-            <label class="label">Dirección</label>
-            <input required name="address" placeholder="Calle, número, colonia">
+            <label>Dirección de envío</label>
+            <input type="text" required placeholder="Calle, número, colonia">
           </div>
-
           <div class="formgroup">
-            <label class="label">Ciudad</label>
-            <input required name="city" placeholder="Ciudad de México">
+            <label>Ciudad</label>
+            <input type="text" required placeholder="Ciudad">
           </div>
-
           <div class="formgroup">
-            <label class="label">Código postal</label>
-            <input required name="zip" inputmode="numeric" placeholder="00000">
+            <label>Código Postal</label>
+            <input type="text" required placeholder="00000">
           </div>
-
-          <div class="formgroup fullrow">
-            <label class="label">Forma de pago</label>
-
-            <select required name="payment">
-              <option value="">Seleccionar</option>
-              <option>Tarjeta de crédito / débito</option>
-              <option>Transferencia</option>
-            </select>
-          </div>
-
         </div>
-
-        <br>
-
-        <button class="goldbtn" type="submit">
-          Confirmar pedido · ${money(total)}
-        </button>
-
-        <p class="notice">
-          Demo funcional de tienda: para aceptar pagos reales habrá que conectar una pasarela y un backend.
-        </p>
-
+        <button type="submit" class="goldbtn full" style="margin-top:25px;height:50px">Confirmar y Pagar</button>
       </form>
     </div>
 
-    <aside class="summary">
-
-      <h2>Tu pedido</h2>
-
-      ${cart.map(x=>`
+    <div class="summary">
+      <h2>Resumen</h2>
+      ${cart.map(item => `
         <div class="summaryline">
-          <span>
-            ${x.nombre} × ${x.cantidad}
-            <br>
-            <small>Talla ${x.tallaSeleccionada}</small>
-          </span>
-
-          <strong>
-            ${money(x.precioUnitario*x.cantidad)}
-          </strong>
+          <div>
+            <strong>${item.nombre}</strong> <small>(${item.talla}) x${item.cantidad}</small>
+          </div>
+          <div>${money(item.precio * item.cantidad)}</div>
         </div>
       `).join('')}
-
       <div class="summarytotal">
-        <span>Total</span>
+        <span>Total a pagar</span>
         <strong>${money(total)}</strong>
       </div>
-
-    </aside>
-  `;
-}
-
-function completeOrder(e){
-  e.preventDefault();
-
-  const form=new FormData(e.target);
-  const order='AILI-'+Date.now().toString().slice(-6);
-
-  document.getElementById('checkoutBody').innerHTML=`
-    <div class="success">
-
-      <div class="script">Thank you</div>
-
-      <h2>Tu pedido está listo.</h2>
-
-      <p>
-        Gracias, ${form.get('name')}.
-        Hemos registrado tu pedido <strong>${order}</strong>.
-        En una tienda conectada a producción, aquí se procesaría
-        el pago y se enviaría la confirmación.
-      </p>
-
-      <button class="goldbtn" onclick="finishOrder()">
-        Volver a AILI
-      </button>
-
     </div>
   `;
 
-  cart=[];
-  save();
-}
-
-function finishOrder(){
-  document.getElementById('checkout').classList.remove('open');
-  location.hash='tienda';
-  renderProducts();
+  document.getElementById('checkout').classList.add('open');
+  document.body.classList.add('lock');
 }
 
 function closeCheckout(){
   document.getElementById('checkout').classList.remove('open');
+  document.body.classList.remove('lock');
 }
 
-let toastTimer;
+function completeOrder(e){
+  e.preventDefault();
+  cart = [];
+  save();
 
-function showToast(t){
-  const e=document.getElementById('toast');
-
-  e.textContent=t;
-  e.classList.add('show');
-
-  clearTimeout(toastTimer);
-
-  toastTimer=setTimeout(
-    ()=>e.classList.remove('show'),
-    2200
-  );
+  document.getElementById('checkoutBody').innerHTML = `
+    <div class="success" style="grid-column:1/-1">
+      <div class="script">AILI</div>
+      <h2>¡Gracias por tu compra!</h2>
+      <p>Hemos recibido tu pedido. Pronto te enviaremos un correo con los detalles del envío.</p>
+      <button class="goldbtn" onclick="closeCheckout()">Volver a la tienda</button>
+    </div>
+  `;
 }
 
+function showToast(msg){
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// Inicialización
 renderProducts();
 updateCartCount();
 </script>
