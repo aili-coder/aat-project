@@ -49,7 +49,7 @@ a{color:inherit;text-decoration:none}
 .field{background:var(--panel);border:1px solid var(--line);color:var(--ink); padding:12px 13px; outline: none; width:100%}
 .field:focus{border-color:var(--gold)}
 select.field{appearance:auto}
-.productgrid{display:grid;grid-template-columns:repeat(4,1fr); border-top: 1px solid var(--line); border-left:1px solid var(--line)}
+.productgrid{display:grid;grid-template-columns:repeat(3,1fr); border-top: 1px solid var(--line); border-left:1px solid var(--line)}
 .product{border-right:1px solid var(--line); border-bottom: 1px solid var(--line);position:relative;background:var(--bg)}
 .productimg{aspect-ratio:3/4;overflow:hidden;position:relative;background:#120817}
 .productimg img{height:100%;transition:transform .6s}
@@ -79,7 +79,7 @@ select.field{appearance:auto}
 .worldcard em{font-style:normal; color:var(--muted); font-size:12px}
 .worldcard:hover{background:var(--panel); color:var(--gold)}
 
-/* SECCIÓN DE DISEÑADORES NUEVA */
+/* DISEÑADORES */
 .designers{padding:90px 0; border-top:1px solid var(--line)}
 .designers-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-top:34px}
 .designer-card{background:var(--panel); border:1px solid var(--line); text-align:center; overflow:hidden}
@@ -88,6 +88,18 @@ select.field{appearance:auto}
 .designer-info{padding:20px}
 .designer-info h3{font:22px var(--display); font-weight:500; color:var(--ink)}
 .designer-info span{font:10px var(--ui); letter-spacing:.14em; text-transform:uppercase; color:var(--gold); display:block; margin-top:5px}
+
+/* CARRUSEL DE PAGO FUNCIONAL */
+.payment-carousel-container {position: relative; margin-top: 10px; margin-bottom: 15px;}
+.payment-carousel {display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 5px;}
+.payment-carousel::-webkit-scrollbar {display: none;}
+.payment-card {min-width: 240px; flex: 0 0 auto; scroll-snap-align: start; background: var(--panel2); border: 1px solid var(--line); padding: 18px; border-radius: 4px; cursor: pointer; transition: 0.2s; position: relative;}
+.payment-card.selected {border-color: var(--gold); background: #20102e;}
+.payment-card h4 {font: 14px var(--ui); color: var(--gold); margin-bottom: 5px;}
+.payment-card p {font-size: 12px; color: var(--muted);}
+.carousel-btns {display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px;}
+.carousel-btn {background: var(--panel); border: 1px solid var(--line); color: var(--ink); width: 28px; height: 28px; display: grid; place-items: center; font-size: 12px;}
+.carousel-btn:hover {border-color: var(--gold); color: var(--gold);}
 
 .story{border-block: 1px solid var(--line); display:grid; grid-template-columns: 1fr 1fr}
 .story img{height:620px}
@@ -245,7 +257,7 @@ footer{border-top: 1px solid var(--line); padding:28px 0; display:flex; justify-
 </div>
 <div class="hero-visual">
 <span class="folio">01/26</span>
-<img src="AILI%20Emerald%20Flow%20Long%20Dress.png" alt="AILI campaign">
+<img src="AILI Emerald Flow Long Dress.png" alt="AILI campaign">
 <div class="hero-label">SS26</div>
 </div>
 </section>
@@ -393,7 +405,7 @@ footer{border-top: 1px solid var(--line); padding:28px 0; display:flex; justify-
 </div>
 </section>
 
-<!-- SECCIÓN NUEVA DE DISEÑADORES -->
+<!-- DISEÑADORES -->
 <section class="designers wrap" id="disenadores">
 <div class="sectionhead">
 <div>
@@ -405,7 +417,7 @@ footer{border-top: 1px solid var(--line); padding:28px 0; display:flex; justify-
 <div class="designers-grid">
 <div class="designer-card">
 <div class="designer-img">
-<img src="ruta-foto-aili.jpg" alt="Aili">
+<img src="AILI Emerald Flow Long Dress.png" alt="Aili">
 </div>
 <div class="designer-info">
 <h3>Aili</h3>
@@ -414,7 +426,7 @@ footer{border-top: 1px solid var(--line); padding:28px 0; display:flex; justify-
 </div>
 <div class="designer-card">
 <div class="designer-img">
-<img src="ruta-foto-denisse.jpg" alt="Denisse">
+<img src="AILI One-Shoulder Mint Dress.jpg" alt="Denisse">
 </div>
 <div class="designer-info">
 <h3>Denisse</h3>
@@ -423,7 +435,7 @@ footer{border-top: 1px solid var(--line); padding:28px 0; display:flex; justify-
 </div>
 <div class="designer-card">
 <div class="designer-img">
-<img src="ruta-foto-giovanni.jpg" alt="Giovanni">
+<img src="AILI White Rose Evening Gown.jpg" alt="Giovanni">
 </div>
 <div class="designer-info">
 <h3>Giovanni</h3>
@@ -432,18 +444,18 @@ footer{border-top: 1px solid var(--line); padding:28px 0; display:flex; justify-
 </div>
 <div class="designer-card">
 <div class="designer-img">
-<img src="ruta-foto-otro.jpg" alt="Diseñador">
+<img src="AILI Emerald Flow Long Dress.png" alt="Diseñador">
 </div>
 <div class="designer-info">
-<h3>Nombre</h3>
-<span>Diseñador / Creativo</span>
+<h3>Equipo</h3>
+<span>Creativos AILI</span>
 </div>
 </div>
 </div>
 </section>
 
 <section class="story wrap" id="editorial">
-<img src="AILI%20Emerald%20Flow%20Long%20Dress.png" alt="AILI editorial">
+<img src="AILI Emerald Flow Long Dress.png" alt="AILI editorial">
 <div class="storycopy">
 <div class="eyebrow">AILI EDITORIAL</div>
 <h2>More than what you wear.</h2>
@@ -500,7 +512,7 @@ worlds: ['Evening', 'Atelier'],
 sizes: ['XS', 'S', 'M', 'L'],
 stock: 5,
 desc: 'Vestido largo de silueta fluida en tono verde esmeralda. Presenta un diseño sin mangas con cuello redondo y un llamativo panel con volante en cascada de corte asimétrico que recorre el lateral desde la cintura. Incluye un cinturón estructural a juego que define la silueta con elegancia.\n\nDetalles Técnicos y Materiales: Confeccionado en crepé de poliéster de alta densidad con tacto de seda. Costuras internas reinforced, cierre invisible posterior y forro interior suave.',
-img: 'AILI%20Emerald%20Flow%20Long%20Dress.png'
+img: 'AILI Emerald Flow Long Dress.png'
 },
 {
 id: 'AILI-002',
@@ -511,7 +523,7 @@ worlds: ['Everyday', 'Statement'],
 sizes: ['XS', 'S', 'M', 'L'],
 stock: 8,
 desc: 'Vestido corto de inspiración dinámica con diseño de un solo hombro y corte asimétrico en el bajo de la falda. Destaca por su cinturón entallado con patrón geométrico en contraste azul y un brazalete a juego que aporta un sello moderno y expresivo.\n\nDetalles Técnicos y Materiales: Tela principal de mezcla de algodón y elastano para mayor comodidad de movimiento. Estampado ecológico en el cinturón. Forro ligero y cierre lateral invisible.',
-img: 'AILI%20Emerald%20Flow%20Long%20Dress.png'
+img: 'AILI One-Shoulder Mint Dress.jpg'
 },
 {
 id: 'AILI-003',
@@ -522,40 +534,7 @@ worlds: ['Evening', 'Atelier'],
 sizes: ['XS', 'S', 'M', 'L'],
 stock: 4,
 desc: 'Exclusivo vestido largo de noche en color blanco puro con silueta estilizadora y una pronunciada abertura lateral en la pierna. Cuenta con finos tirantes y un sofisticado detalle de corsetería con cordón cruzado en la espalda. La pieza se corona con una tira diagonal y un llamativo cinturón estructurado compuesto por delicadas rosas rojas en relieve.\n\nDetalles Técnicos y Materiales: Satén elastizado (95% poliéster, 5% spandex) en color blanco puro con forro de alta opacidad. Rosas de tela confeccionadas artesanalmente y fijadas al cinturón y tirante decorativo. Sistema de ajuste con ojales metálicos y cordón en la espalda.',
-img: 'AILI%20Emerald%20Flow%20Long%20Dress.png'
-},
-{
-id: 'AILI-004',
-name: 'AILI Coral Panel Shift Dress',
-price: 1550,
-category: 'ropa',
-worlds: ['Everyday', 'Movement'],
-sizes: ['XS', 'S', 'M', 'L'],
-stock: 7,
-desc: 'Vestido corto en vibrante tono coral de silueta fluida, destacado por un panel vertical central en color blanco contrastante, sutiles detalles de volantes en el escote y una flor, además de los mismos volantes en la cintura. Cuenta con un diseño fresco de hombros descubiertos con tirantes finos.\n\nDetalles Técnicos y Materiales: Tejido principal de crepé de poliéster ligero con forro interior suave. Panel frontal de mezcla de algodón y poliéster. Costuras reinforced en dobladillos.',
-img: 'AILI%20Emerald%20Flow%20Long%20Dress.png'
-},
-{
-id: 'AILI-005',
-name: 'AILI Botanical Asymmetric Layered Dress',
-price: 2800,
-category: 'ropa',
-worlds: ['Statement', 'Atelier'],
-sizes: ['XS', 'S', 'M', 'L'],
-stock: 3,
-desc: 'Pieza conceptual y expresiva de corte asimétrico que fusiona un corpiño entallado con estampado botánico en tonos azules y una banda diagonal azul, combinada con una falda en capas escalonadas que mezcla texturas en blanco y azul.\n\nDetalles Técnicos y Materiales: Cuerpo superior en satén estampado de alta definición. Falda inferior en capas de crepé y tul estructurado. Cierre invisible en la parte posterior y soporte interno en el bustier.',
-img: 'AILI%20Emerald%20Flow%20Long%20Dress.png'
-},
-{
-id: 'AILI-006',
-name: 'AILI Plum High-Low Evening Dress',
-price: 2650,
-category: 'ropa',
-worlds: ['Evening', 'Statement'],
-sizes: ['XS', 'S', 'M', 'L'],
-stock: 6,
-desc: 'Vestido de noche en tono morado profundo con diseño de corte alto-bajo que deja al descubierto la falda interior texturizada en tono oscuro. Presenta mangas cortas caídas de encaje delicado y un cinturón estructurado con lazo negro que enmarca la cintura con distinción.\n\nDetalles Técnicos y Materiales: Satén de poliéster elastizado de alta calidad. Mangas de encaje elástico importado. Forro interior de tacto sedoso y cierre trasero invisible.',
-img: 'AILI%20Emerald%20Flow%20Long%20Dress.png'
+img: 'AILI White Rose Evening Gown.jpg'
 }
 ];
 let cart=JSON.parse(localStorage.getItem('ailiCart')||'[]');
@@ -563,6 +542,8 @@ let wishlist=JSON.parse(localStorage.getItem('ailiWishlist')||'[]');
 let selectedProduct=null;
 let selectedSize=null;
 let modalQty = 1;
+let selectedPaymentMethod = 'Tarjeta de Crédito Principal';
+
 function money(n){
 return new Intl.NumberFormat('es-MX',{
 style:'currency',
@@ -879,6 +860,18 @@ closeCart();
 document.getElementById('checkout').classList.add('open');
 renderCheckout();
 }
+function scrollCarousel(direction) {
+const carousel = document.getElementById('paymentCarousel');
+const scrollAmount = 260;
+carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+
+function selectPaymentCard(element, methodName) {
+document.querySelectorAll('.payment-card').forEach(card => card.classList.remove('selected'));
+element.classList.add('selected');
+selectedPaymentMethod = methodName;
+}
+
 function renderCheckout(){
 const total=cart.reduce((a,x)=>a+x.precioUnitario*x.cantidad, 0);
 document.getElementById('checkoutBody').innerHTML=`
@@ -911,12 +904,35 @@ document.getElementById('checkoutBody').innerHTML=`
 <input required name="zip" inputmode="numeric" placeholder="00000">
 </div>
 <div class="formgroup fullrow">
-<label class="label">Forma de pago</label>
-<select required name="payment">
-<option value="">Seleccionar</option>
-<option>Tarjeta de crédito / débito</option>
-<option>Transferencia</option>
-</select>
+<label class="label">Método de Pago (Selecciona del carrusel)</label>
+<div class="payment-carousel-container">
+<div class="payment-carousel" id="paymentCarousel">
+<div class="payment-card selected" onclick="selectPaymentCard(this, 'Tarjeta de Crédito Principal')">
+<h4>Crédito Principal</h4>
+<p>•••• •••• •••• 4242</p>
+<small style="color:var(--gold)">Exp: 12/28</small>
+</div>
+<div class="payment-card" onclick="selectPaymentCard(this, 'Tarjeta Débito Digital')">
+<h4>Débito Digital</h4>
+<p>•••• •••• •••• 8890</p>
+<small style="color:var(--gold)">Exp: 09/27</small>
+</div>
+<div class="payment-card" onclick="selectPaymentCard(this, 'PayPal Express')">
+<h4>PayPal</h4>
+<p>usuario@aili.com</p>
+<small style="color:var(--gold)">Vinculado</small>
+</div>
+<div class="payment-card" onclick="selectPaymentCard(this, 'Transferencia SPEI')">
+<h4>Transferencia SPEI</h4>
+<p>Banco AILI México</p>
+<small style="color:var(--gold)">Instantáneo</small>
+</div>
+</div>
+<div class="carousel-btns">
+<button type="button" class="carousel-btn" onclick="scrollCarousel(-1)">‹</button>
+<button type="button" class="carousel-btn" onclick="scrollCarousel(1)">›</button>
+</div>
+</div>
 </div>
 </div>
 <br>
@@ -924,7 +940,7 @@ document.getElementById('checkoutBody').innerHTML=`
 Confirmar pedido ${money(total)}
 </button>
 <p class="notice">
-Demo funcional de tienda: para aceptar pagos reales habrá que conectar una pasarela y un backend.
+Método seleccionado: <span id="paymentLabel" style="color:var(--gold)">Tarjeta de Crédito Principal</span>. Demo interactivo funcional.
 </p>
 </form>
 </div>
@@ -949,6 +965,15 @@ ${money(x.precioUnitario*x.cantidad)}
 </aside>
 `;
 }
+
+function selectPaymentCard(element, methodName) {
+document.querySelectorAll('.payment-card').forEach(card => card.classList.remove('selected'));
+element.classList.add('selected');
+selectedPaymentMethod = methodName;
+const label = document.getElementById('paymentLabel');
+if(label) label.textContent = methodName;
+}
+
 function completeOrder(e){
 e.preventDefault();
 const form=new FormData(e.target);
@@ -959,8 +984,8 @@ document.getElementById('checkoutBody').innerHTML=`
 <h2>Tu pedido está listo.</h2>
 <p>
 Gracias, ${form.get('name')}.
-Hemos registrado tu pedido <strong>${order}</strong>.
-En una tienda conectada a producción, aquí se procesaría el pago y se enviaría la confirmación.
+Hemos registrado tu pedido <strong>${order}</strong> utilizando el método: <strong>${selectedPaymentMethod}</strong>.
+En una tienda conectada a producción, aquí se procesaría el pago de forma segura y se enviaría la confirmación.
 </p>
 <button class="goldbtn" onclick="finishOrder()">
 Volver a AILI
