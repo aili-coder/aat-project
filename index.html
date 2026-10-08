@@ -7,12 +7,12 @@
 <title>AILI - WHO WILL YOU BE TODAY?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,600&family=Imperial+Script&family=Syne:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#09030d;--panel:#13081e;--panel2:#170b22;--ink:#f0e6f6;--muted:#bda8cd;--line:#2d183d;--accent:#a855f7;--gold:#c9a45c;--display: 'Bodoni Moda', serif;--script:'Imperial Script', cursive;--sans: 'Tenor Sans', sans-serif;--ui: 'Syne', sans-serif}
+:root{--bg:#09030d;--panel:#13081e;--panel2:#170b22;--ink:#f0e6f6;--muted:#bda8cd;--line:#2d183d;--accent:#a855f7;--gold:#c9a45c;--display: 'Playfair Display', serif;--script:'Cinzel', serif;--sans: 'Lora', serif;--ui: 'Montserrat', sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.55; font-size:16px}
+body{background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.6; font-size:16px}
 body.lock{overflow:hidden}
 img{display:block; width: 100%; object-fit:cover}
 button, input, select{font:inherit}
@@ -21,21 +21,21 @@ a{color:inherit;text-decoration:none}
 .wrap{width:min (1220px, calc(100% - 48px)); margin:auto}
 .topline{border-bottom:1px solid var(--line); font:11px var(--ui); letter-spacing:.16em; text-transform:uppercase; color:var(--muted); padding:12px 0;display:flex; justify-content:space-between}
 .nav{height:84px;border-bottom: 1px solid var(--line); display: flex; align-items:center; justify-content:space-between;gap:24px}
-.logo{font:4rem/1 var(--script); color:var(--ink)}
-.navlinks{display: flex; gap:28px;font:12px var(--ui); text-transform:uppercase; letter-spacing:.12em}
+.logo{font:1.8rem var(--script); font-weight:600; letter-spacing:.18em; color:var(--ink)}
+.navlinks{display: flex; gap:28px;font:11px var(--ui); text-transform:uppercase; letter-spacing:.14em}
 .navlinks a:hover{color:var(--gold)}
 .navactions{display: flex; align-items:center; gap: 10px}
-.iconbtn,.goldbtn, .ghostbtn{border:1px solid var(--line); background:transparent; color:var(--ink); min-height: 42px;padding:0 16px; font-family:var(--ui);}
+.iconbtn,.goldbtn, .ghostbtn{border:1px solid var(--line); background:transparent; color:var(--ink); min-height: 42px;padding:0 16px; font-family:var(--ui); font-size:11px}
 .iconbtn:hover,.ghostbtn:hover{border-color:var(--gold);color:var(--gold)}
-.goldbtn{background:var(--gold); border-color:var(--gold); color:#160e12;font:700 11px var(--ui);letter-spacing:.12em; text-transform:uppercase}
+.goldbtn{background:var(--gold); border-color:var(--gold); color:#160e12;font:600 11px var(--ui);letter-spacing:.14em; text-transform:uppercase}
 .goldbtn:hover{filter:brightness(1.08)}
 .cartcount{display:inline-grid;place-items:center; min-width:20px; height:20px;padding:0 5px;border-radius: 50%; background:var(--accent); color:white;font-size:10px;margin-left:5px}
 .hero{min-height:calc(100vh - 130px); display:grid; grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line); padding:40px 0}
 .hero-copy{display: flex; flex-direction:column;justify-content:center;padding:40px 4vw 40px 0}
 .eyebrow{font:11px var(--ui); letter-spacing: .2em; text-transform:uppercase;color:var(--gold); margin-bottom:18px}
-.hero h1 {font:clamp(60px, 8vw, 130px)/.85 var(--display);font-weight:500; letter-spacing:-.04em}
-.hero h1 .vogue-text{font-style: italic; font-weight: 400; letter-spacing: .02em; color: var(--gold);}
-.hero p{max-width: 530px;color:var(--muted);margin:34px 0;font-size:18px}
+.hero h1 {font:clamp(55px, 7.5vw, 120px)/.9 var(--display);font-weight:400; letter-spacing:-.02em}
+.hero h1 .vogue-text{font-style: italic; font-weight: 400; color: var(--gold); padding: 0 4px;}
+.hero p{max-width: 530px;color:var(--muted);margin:34px 0;font-size:17px}
 .hero-actions{display: flex;gap:10px; flex-wrap:wrap;}
 .hero-visual{position:relative; min-height:620px;border-left:1px solid var(--line); overflow:hidden}
 .hero-visual img{height:100%;filter:saturate(.8)}
@@ -43,10 +43,10 @@ a{color:inherit;text-decoration:none}
 .folio{position:absolute;right:20px;top:20px;z-index:2;color:var(--gold); font:11px var(--ui); letter-spacing:.15em}
 .shop{padding:90px 0}
 .sectionhead{display: flex; justify-content:space-between; align-items:end; gap:25px;margin-bottom:34px}
-.sectionhead h2{font:clamp(38px,5vw, 65px) var(--display); font-weight:500;line-height:.95}
+.sectionhead h2{font:clamp(36px,4.5vw, 60px) var(--display); font-weight:400;line-height:1}
 .sectionhead p{color:var(--muted); max-width:400px;text-align:right}
 .filters{border-block: 1px solid var(--line); padding:20px 0;display:grid;grid-template-columns: 1.5fr repeat(4, 1fr) auto; gap:12px;margin-bottom:28px}
-.field{background:var(--panel);border:1px solid var(--line);color:var(--ink); padding:12px 13px; outline: none; width:100%; font-family:var(--sans)}
+.field{background:var(--panel);border:1px solid var(--line);color:var(--ink); padding:12px 13px; outline: none; width:100%; font-family:var(--ui); font-size:12px}
 .field:focus{border-color:var(--gold)}
 select.field{appearance:auto}
 .productgrid{display:grid;grid-template-columns:repeat(4,1fr); border-top: 1px solid var(--line); border-left:1px solid var(--line)}
@@ -59,8 +59,8 @@ select.field{appearance:auto}
 .heart.active{color:var(--gold);border-color:var(--gold)}
 .productbody{padding:18px}
 .productbody .category{font:9px var(--ui); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
-.productbody h3{font:20px var(--display);font-weight:500;margin:6px 0}
-.price{color:var(--gold); font:15px var(--ui)} 
+.productbody h3{font:19px var(--display);font-weight:400;margin:6px 0}
+.price{color:var(--gold); font:14px var(--ui); font-weight:500} 
 .stock{font-size:12px; color:var(--muted); margin-top:8px}
 .product-actions{display: flex; gap:7px;margin-top:15px}
 .product-actions button{flex:1}
@@ -68,15 +68,15 @@ select.field{appearance:auto}
 .shopnav{display:grid;grid-template-columns:repeat(6, 1fr); border:1px solid var(--line);margin-bottom:22px}
 .shopnavitem{padding:18px 17px;border-right:1px solid var(--line); display: flex; flex-direction:column;gap:3px;min-height: 110px;transition:.2s; background:transparent; text-align:left; color:var(--ink)}
 .shopnavitem:last-child {border-right:0}
-.shopnavitem span,.worldcard span{font:9px var(--ui); letter-spacing:. 14em;color:var(--gold)}
-.shopnavitem strong{font:14px var(--ui); letter-spacing:.08em}
+.shopnavitem span,.worldcard span{font:9px var(--ui); letter-spacing:.14em;color:var(--gold)}
+.shopnavitem strong{font:13px var(--ui); font-weight:600; letter-spacing:.08em}
 .shopnavitem small{color:var(--muted); font-size:11px}
 .shopnavitem:hover,.shopnavitem.active{background:var(--panel);color:var(--gold)}
 .worlds{padding:90px 0;border-top: 1px solid var(--line)}
 .worldgrid{display:grid;grid-template-columns:repeat(4,1fr); border-top: 1px solid var(--line); border-left:1px solid var(--line)}
 .worldcard{min-height: 190px;padding:22px;border-right:1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction:column; justify-content:space-between; transition:.25s; background:transparent; text-align:left; color:var(--ink)}
-.worldcard strong{font:clamp(24px, 2.5vw, 38px) var(--display); font-weight:500}
-.worldcard em{font-style:normal; color:var(--muted); font-size:12px}
+.worldcard strong{font:clamp(22px, 2.5vw, 36px) var(--display); font-weight:400}
+.worldcard em{font-style:normal; color:var(--muted); font-size:12px; font-family:var(--ui)}
 .worldcard:hover{background:var(--panel); color:var(--gold)}
 
 /* DISEÑADORES */
@@ -86,7 +86,7 @@ select.field{appearance:auto}
 .designer-img{aspect-ratio:1/1; background:#1e102d; position:relative}
 .designer-img img{height:100%; object-fit:cover;}
 .designer-info{padding:20px}
-.designer-info h3{font:20px var(--display); font-weight:500; color:var(--ink)}
+.designer-info h3{font:19px var(--display); font-weight:400; color:var(--ink)}
 .designer-info span{font:10px var(--ui); letter-spacing:.14em; text-transform:uppercase; color:var(--gold); display:block; margin-top:5px}
 
 /* CARRUSEL DE PAGO FUNCIONAL */
@@ -95,8 +95,8 @@ select.field{appearance:auto}
 .payment-carousel::-webkit-scrollbar {display: none;}
 .payment-card {min-width: 240px; flex: 0 0 auto; scroll-snap-align: start; background: var(--panel2); border: 1px solid var(--line); padding: 18px; border-radius: 4px; cursor: pointer; transition: 0.2s; position: relative;}
 .payment-card.selected {border-color: var(--gold); background: #20102e;}
-.payment-card h4 {font: 14px var(--ui); color: var(--gold); margin-bottom: 5px;}
-.payment-card p {font-size: 12px; color: var(--muted);}
+.payment-card h4 {font: 13px var(--ui); font-weight:600; color: var(--gold); margin-bottom: 5px;}
+.payment-card p {font-size: 12px; color: var(--muted); font-family:var(--ui);}
 .carousel-btns {display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px;}
 .carousel-btn {background: var(--panel); border: 1px solid var(--line); color: var(--ink); width: 28px; height: 28px; display: grid; place-items: center; font-size: 12px;}
 .carousel-btn:hover {border-color: var(--gold); color: var(--gold);}
@@ -104,32 +104,32 @@ select.field{appearance:auto}
 .story{border-block: 1px solid var(--line); display:grid; grid-template-columns: 1fr 1fr}
 .story img{height:620px}
 .storycopy{padding:70px; display: flex; flex-direction:column; justify-content:center}
-.storycopy h2{font:clamp(38px,4.5vw, 64px) var(--display);font-weight:500;line-height:.98;margin:12px 0 25px}
+.storycopy h2{font:clamp(36px,4vw, 58px) var(--display);font-weight:400;line-height:1.05;margin:12px 0 25px}
 .storycopy p{color:var(--muted); max-width: 530px}
 .manifest{padding: 100px 0;text-align:center}
-.manifest.script{font:clamp(55px, 8vw, 100px) var(--script); color:var(--accent)}
-.manifest h2{font:clamp(42px,6vw, 85px) var(--display); font-weight:500; line-height:.9}
+.manifest.script{font:2.2rem var(--script); font-weight:600; letter-spacing:.25em; color:var(--accent)}
+.manifest h2{font:clamp(38px,5.5vw, 75px) var(--display); font-weight:400; line-height:1}
 .manifest p{color:var(--muted); max-width: 560px; margin:28px auto}
 footer{border-top: 1px solid var(--line); padding:35px 0; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; color:var(--muted); font:10px var(--ui); letter-spacing:.13em; text-transform:uppercase}
-.footerlogo{font:2.5rem var(--script); color:var(--ink)}
+.footerlogo{font:1.6rem var(--script); font-weight:600; letter-spacing:.18em; color:var(--ink)}
 .overlay{position:fixed; inset:0; background:rgba(0,0,0,.7);z-index:20;opacity:0;pointer-events:none;transition:.25s}
 .overlay.open{opacity: 1; pointer-events:auto}
 .drawer{position:fixed;right:0;top:0;height:100%;width: min(500px, 100%); background:var(--panel);z-index:21; transform: translateX(100%); transition:.3s;border-left: 1px solid var(--line); display: flex; flex-direction:column}
 .drawer.open{transform:none}
 .drawerhead{padding:22px;border-bottom:1px solid var(--line); display: flex; justify-content:space-between; align-items:center}
-.drawerhead h2{font:28px var(--display); font-weight:500}
+.drawerhead h2{font:26px var(--display); font-weight:400}
 .close{border:0;background:none;color:var(--ink); font-size:25px}
 .cartitems{overflow:auto; flex:1; padding: 10px 22px}
 .cartitem{display:grid; grid-template-columns:75px 1fr auto; gap: 14px;padding:18px 0;border-bottom:1px solid var(--line)}
 .cartitem img{height: 100px}
-.cartinfo h3{font:18px var(--display); font-weight:500}
-.cartmeta{font-size:11px; color:var(--muted); margin:4px 0}
+.cartinfo h3{font:17px var(--display); font-weight:400}
+.cartmeta{font-size:11px; color:var(--muted); margin:4px 0; font-family:var(--ui)}
 .qty{display:flex; align-items:center; gap:8px;margin-top:9px}
 .qty button{width:25px;height:25px;background:transparent; border: 1px solid var(--line);color:var(--ink)}
-.remove{background:none; border:0;color:var(--muted); font-size:11px;text-decoration:underline;margin-top:7px}
-.cartprice{font:14px var(--ui); color:var(--gold);white-space:nowrap}
+.remove{background:none; border:0;color:var(--muted); font-size:11px;text-decoration:underline;margin-top:7px; font-family:var(--ui)}
+.cartprice{font:13px var(--ui); font-weight:500; color:var(--gold);white-space:nowrap}
 .cartfoot{border-top: 1px solid var(--line); padding:22px}
-.total{display: flex; justify-content:space-between; font:16px var(--ui); margin-bottom: 15px}
+.total{display: flex; justify-content:space-between; font:15px var(--ui); font-weight:600; margin-bottom: 15px}
 .total strong{color:var(--gold)}
 .full{width:100%}
 .cartempty{text-align:center;padding:70px 20px;color:var(--muted)}
@@ -141,43 +141,43 @@ footer{border-top: 1px solid var(--line); padding:35px 0; display:flex; justify-
 .modalimage img{height:100%; min-height:600px}
 .modalinfo{padding:40px}
 .modalinfo .category{font: 10px var(--ui); letter-spacing:.14em;color:var(--muted); text-transform:uppercase}
-.modalinfo h2{font:clamp(32px, 4vw, 52px) var(--display); font-weight:500; line-height:.95;margin:12px 0}
-.modalprice{font:18px var(--ui); color:var(--gold); margin-bottom:22px}
+.modalinfo h2{font:clamp(28px, 3.5vw, 46px) var(--display); font-weight:400; line-height:1.05;margin:12px 0}
+.modalprice{font:17px var(--ui); font-weight:500; color:var(--gold); margin-bottom:22px}
 .modaldesc{color:var(--muted);margin-bottom:25px; font-size:15px}
 .label{font: 10px var(--ui); letter-spacing:.14em; text-transform:uppercase; color:var(--gold); display:block;margin-bottom:9px}
 .sizes{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:22px}
-.size{min-width:40px;height:38px; background:transparent; color:var(--ink); border:1px solid var(--line); font-family:var(--ui); font-size:12px}
+.size{min-width:40px;height:38px; background:transparent; color:var(--ink); border:1px solid var(--line); font-family:var(--ui); font-size:11px}
 .size:hover,.size.selected{border-color:var(--gold);color:var(--gold); background: var(--panel2)}
 .quantity{display:flex;align-items:center;gap:14px;margin-bottom:22px}
 .quantity button{width:34px;height: 34px;background:transparent;border:1px solid var(--line);color:var(--ink)}
-.notice{font-size:11px;color:var(--muted); margin-top:14px}
+.notice{font-size:11px;color:var(--muted); margin-top:14px; font-family:var(--ui)}
 .checkout{position:fixed; inset:0; background:var(--bg);z-index:40;overflow:auto;display:none}
 .checkout.open{display:block}
 .checkoutinner{width:min (1100px, calc(100% - 48px)); margin:auto;padding:45px 0}
 .checkouttop{display: flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom: 25px; margin-bottom:40px}
-.checkouttop .logo{font-size:3rem}
+.checkouttop .logo{font-size:2.4rem}
 .checkoutbody{display:grid;grid-template-columns: 1.5fr 1fr;gap:50px}
-.checkoutbody h1{font:clamp(36px, 5vw, 56px) var(--display); font-weight:500; margin-bottom:25px}
+.checkoutbody h1{font:clamp(32px, 4.5vw, 50px) var(--display); font-weight:400; margin-bottom:25px}
 .formgrid{display:grid; grid-template-columns: 1fr 1fr;gap:15px}
 .formgroup{display: flex; flex-direction:column; gap:7px}
 .formgroup.fullrow{grid-column:1/-1}
 .formgroup label{margin-bottom:0}
-.formgroup input, .formgroup select{background:var(--panel); border:1px solid var(--line);color:var(--ink);padding: 13px; outline:none; font-family:var(--sans)}
+.formgroup input, .formgroup select{background:var(--panel); border:1px solid var(--line);color:var(--ink);padding: 13px; outline:none; font-family:var(--ui); font-size:13px}
 .formgroup input:focus, .formgroup select:focus {border-color:var(--gold)}
 .summary{border:1px solid var(--line); padding:25px;background: var(--panel); height:max-content}
-.summary h2{font:26px var(--display); font-weight:500; margin-bottom:20px}
+.summary h2{font:24px var(--display); font-weight:400; margin-bottom:20px}
 .summaryline{display: flex; justify-content:space-between; gap: 15px; border-bottom:1px solid var(--line); padding: 13px 0;font-size:13px}
 .summaryline small{color:var(--muted)}
-.summarytotal{display: flex; justify-content:space-between;margin-top:20px; font:16px var(--ui)}
+.summarytotal{display: flex; justify-content:space-between;margin-top:20px; font:15px var(--ui); font-weight:600}
 .summarytotal strong{color:var(--gold)}
 .success{text-align:center;padding: 100px 20px}
-.success.script{font:80px var(--script); color:var(--accent)}
-.success h2{font:clamp(40px, 5vw, 70px) var(--display); font-weight:500}
+.success.script{font:2.5rem var(--script); font-weight:600; letter-spacing:.2em; color:var(--accent)}
+.success h2{font:clamp(36px, 4.5vw, 62px) var(--display); font-weight:400}
 .success p{max-width:600px;margin:25px auto; color:var(--muted)}
 .toast{position:fixed; bottom: 25px; left:50%; transform: translateX(-50%) translateY(20px); background: var(--gold); color:#160e12; padding:12px 18px; font:11px var(--ui); letter-spacing:.08em;z-index:50;opacity:0;pointer-events:none;transition:.25s}
 .toast.show{opacity:1; transform: translateX(-50%) translateY(0)}
 
-/* ADAPTACIONES ESPECÍFICAS PARA MÓVIL Y PANTALLAS MUY PEQUEÑAS */
+/* ADAPTACIONES RESPONSIVAS */
 @media(max-width:950px){
 .hero,.story,.checkoutbody,.designers-grid{grid-template-columns:1fr 1fr}
 .hero-copy{padding-right:0}
@@ -221,15 +221,15 @@ footer{border-top: 1px solid var(--line); padding:35px 0; display:flex; justify-
 .wrap{width:min(100% - 24px, 1220px)}
 .topline{font-size:8px; letter-spacing:.1em}
 .nav{height:65px}
-.logo{font-size:3.2rem}
-.hero h1{font-size:clamp(45px, 12vw, 62px)}
+.logo{font-size:1.5rem}
+.hero h1{font-size:clamp(42px, 11vw, 56px)}
 .productgrid{grid-template-columns:repeat(2, 1fr)}
 .productbody{padding:12px}
 .productbody h3{font-size:16px}
-.price{font-size:14px}
+.price{font-size:13px}
 .worldgrid{grid-template-columns:1fr 1fr}
 .worldcard{min-height:140px; padding:14px}
-.worldcard strong{font-size:22px}
+.worldcard strong{font-size:20px}
 .designers-grid{grid-template-columns:1fr}
 footer{flex-direction:column; text-align:center; gap:12px}
 }
